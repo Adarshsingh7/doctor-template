@@ -1,14 +1,7 @@
 import Link from "next/link";
+import { globalData } from "@/lib/site-data";
 
 type ActivePage = "home" | "conditions" | "technology" | "patients";
-
-const navItems = [
-  { label: "Services", href: "/", key: "home" },
-  { label: "Conditions", href: "/conditions", key: "conditions" },
-  { label: "Technology", href: "/procedures", key: "technology" },
-  { label: "Patients", href: "/resources", key: "patients" },
-  { label: "FAQ", href: "#" },
-] satisfies Array<{ label: string; href: string; key?: ActivePage }>;
 
 export function SiteHeader({ active }: Readonly<{ active: ActivePage }>) {
   return (
@@ -20,15 +13,15 @@ export function SiteHeader({ active }: Readonly<{ active: ActivePage }>) {
               className="material-symbols-outlined text-primary-fixed"
               style={{ fontVariationSettings: `'FILL' 1` }}
             >
-              neurology
+              {globalData.logoIcon}
             </span>
           </div>
           <h1 className="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">
-            NeuroLink Excellence
+            {globalData.brandName}
           </h1>
         </div>
         <nav className="hidden md:flex items-center gap-8 font-label-md text-label-md">
-          {navItems.map((item) => {
+          {globalData.navItems.map((item) => {
             const isActive = item.key === active;
             const className = isActive
               ? "text-secondary font-bold border-b-2 border-secondary pb-1"
@@ -59,51 +52,55 @@ export function SiteHeader({ active }: Readonly<{ active: ActivePage }>) {
 }
 
 export function SiteFooter() {
+  const { footer } = globalData;
   return (
     <footer className="bg-primary-container dark:bg-tertiary-container w-full pt-16 pb-8">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-on-primary-fixed">
         <div className="md:col-span-1">
           <div className="flex items-center gap-3 mb-6">
-            <img alt="Logo" className="w-12 h-12 object-contain brightness-0 invert" src="/stitch/asset-06.jpg" />
-            <h4 className="font-headline-md text-headline-md font-extrabold text-primary-fixed">NeuroLink</h4>
+            <img alt="Logo" className="w-12 h-12 object-contain brightness-0 invert" src={footer.logoImage} />
+            <h4 className="font-headline-md text-headline-md font-extrabold text-primary-fixed">{footer.brandName}</h4>
           </div>
           <p className="font-body-md text-body-md text-on-primary-container leading-relaxed mb-6">
-            Global excellence in neurosurgical innovation and compassionate patient care since 2004.
+            {footer.description}
           </p>
           <div className="flex gap-4">
-            <a className="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-secondary transition-colors text-white" href="#">
-              <span className="material-symbols-outlined text-sm">share</span>
-            </a>
-            <a className="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-secondary transition-colors text-white" href="#">
-              <span className="material-symbols-outlined text-sm">video_call</span>
-            </a>
+            {footer.socialLinks.map((link, idx) => (
+              <a key={idx} className="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-secondary transition-colors text-white" href={link.href}>
+                <span className="material-symbols-outlined text-sm">{link.icon}</span>
+              </a>
+            ))}
           </div>
         </div>
         <div>
           <h5 className="text-white font-label-md text-label-md uppercase tracking-widest mb-6">Patient Links</h5>
           <ul className="space-y-3 font-body-md text-body-md text-on-primary-container">
-            <li><a className="hover:text-primary-fixed-dim transition-colors hover:underline" href="#">Privacy Policy</a></li>
-            <li><a className="hover:text-primary-fixed-dim transition-colors hover:underline" href="#">Terms of Service</a></li>
-            <li><a className="hover:text-primary-fixed-dim transition-colors hover:underline" href="#">Patient Rights</a></li>
-            <li><a className="hover:text-primary-fixed-dim transition-colors hover:underline" href="#">Medical Disclaimer</a></li>
-            <li><a className="hover:text-primary-fixed-dim transition-colors hover:underline" href="#">Contact Us</a></li>
+            {footer.patientLinks.map((link) => (
+              <li key={link.label}>
+                <a className="hover:text-primary-fixed-dim transition-colors hover:underline" href={link.href}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
           <h5 className="text-white font-label-md text-label-md uppercase tracking-widest mb-6">Clinical Hours</h5>
           <ul className="space-y-3 font-body-md text-body-md text-on-primary-container">
-            <li className="flex justify-between"><span>Monday - Friday</span> <span>8am - 6pm</span></li>
-            <li className="flex justify-between"><span>Saturday</span> <span>Emergencies</span></li>
-            <li className="flex justify-between"><span>Sunday</span> <span>Closed</span></li>
+            {footer.clinicalHours.map((hour, idx) => (
+              <li key={idx} className="flex justify-between">
+                <span>{hour.days}</span> <span>{hour.time}</span>
+              </li>
+            ))}
             <li className="pt-4 text-secondary-fixed font-bold flex items-center gap-2">
               <span className="material-symbols-outlined text-sm">notification_important</span>
-              24/7 Surgical Support
+              {footer.supportTagline}
             </li>
           </ul>
         </div>
         <div>
           <h5 className="text-white font-label-md text-label-md uppercase tracking-widest mb-6">Newsletter</h5>
-          <p className="text-sm text-on-primary-container mb-4">Subscribe to neurological health insights.</p>
+          <p className="text-sm text-on-primary-container mb-4">{footer.newsletterText}</p>
           <div className="flex gap-2">
             <input
               className="bg-primary/40 border-outline-variant/30 rounded-lg p-2 text-white text-sm w-full outline-none focus:border-secondary"
@@ -118,9 +115,10 @@ export function SiteFooter() {
       </div>
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-16 pt-8 border-t border-outline-variant/10 text-center">
         <p className="font-body-md text-body-md text-on-primary-container opacity-60">
-          © 2024 NeuroLink Neurosurgery Clinic. All rights reserved. Professional Excellence in Neurological Care.
+          {footer.copyright}
         </p>
       </div>
     </footer>
   );
 }
+

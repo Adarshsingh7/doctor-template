@@ -1,7 +1,8 @@
 import Script from "next/script";
 import { SiteFooter, SiteHeader } from "../components/site-chrome";
+import { resourcesData } from "@/lib/site-data";
 
-const pageStyles = ".material-symbols-outlined {\n            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;\n        }\n        .clinical-shadow {\n            box-shadow: 0 4px 20px rgba(0, 106, 97, 0.04);\n        }\n        .active-nav-link {\n            border-bottom: 2px solid #006a61;\n            color: #006a61;\n            font-weight: 700;\n            padding-bottom: 0.25rem;\n        }";
+const resourcesStyles = ".material-symbols-outlined {\n            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;\n        }";
 
 export default function ResourcesPage() {
   return (
@@ -10,10 +11,11 @@ export default function ResourcesPage() {
       <SiteHeader active="patients" />
       <main className="pt-20">
         <HeroSection />
-        <SurgicalPreparationGuides />
-        <TelehealthPortalBentoSection />
-        <AdministrativeResourcesFAQ />
-        <ContactSupportCTA />
+        <GuidesSection />
+        <TelehealthSection />
+        <AdministrativeSection />
+        <FAQSection />
+        <SupportCTASection />
       </main>
       <SiteFooter />
       <ResourcesInteractions />
@@ -25,198 +27,149 @@ function ResourcesRuntime() {
   return (
     <>
       <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-      <style dangerouslySetInnerHTML={{ __html: pageStyles }} />
+      <style dangerouslySetInnerHTML={{ __html: resourcesStyles }} />
     </>
   );
 }
 
 function HeroSection() {
+  const { hero } = resourcesData;
   return (
     <>
-      <section className="relative h-[614px] flex items-center overflow-hidden bg-primary-container">
-      <div className="absolute inset-0 opacity-40">
-      <img alt="" className="w-full h-full object-cover" data-alt="A high-end, bright clinical lobby with a modern information desk. A professional healthcare administrator is helping a patient. The atmosphere is calm, clean, and filled with soft natural light. The color palette features deep navy accents and crisp whites, embodying clinical excellence and reassurance." src="/stitch/asset-12.jpg"/>
-      </div>
-      <div className="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
-      <div className="max-w-2xl">
-      <h1 className="font-headline-lg text-headline-lg text-on-tertiary mb-6">Patient Resources</h1>
-      <p className="font-body-lg text-body-lg text-on-primary-container leading-relaxed">
-                              Empowering your neurological journey through transparent communication, comprehensive preparation guides, and clinical excellence. Your recovery begins with the right information.
-                          </p>
-      </div>
-      </div>
+      <section className="relative h-[480px] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img alt="Resources Hero" className="w-full h-full object-cover" src={hero.image} />
+          <div className="absolute inset-0 bg-primary/45 backdrop-blur-[2px]"></div>
+        </div>
+        <div className="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+          <div className="max-w-2xl text-white">
+            <h1 className="font-headline-lg text-headline-lg mb-6 leading-tight">{hero.title}</h1>
+            <p className="font-body-lg text-body-lg text-primary-fixed-dim/90">{hero.description}</p>
+          </div>
+        </div>
       </section>
     </>
   );
 }
 
-function SurgicalPreparationGuides() {
+function GuidesSection() {
+  const { guides } = resourcesData;
   return (
     <>
-      <section className="py-24 px-margin-desktop max-w-container-max mx-auto">
-      <div className="mb-12">
-      <h2 className="font-headline-md text-headline-md text-primary mb-2">Surgical Preparation Guides</h2>
-      <div className="w-16 h-1 bg-secondary rounded-full"></div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-      {/* Card 1 */}
-      <div className="bg-surface-container-lowest clinical-shadow p-8 rounded-xl border border-surface-container-high transition-all hover:-translate-y-1">
-      <div className="w-12 h-12 bg-secondary-container flex items-center justify-center rounded-lg mb-6">
-      <span className="material-symbols-outlined text-on-secondary-container" style={{ fontVariationSettings: "&apos;FILL&apos; 1" }}>assignment</span>
-      </div>
-      <h3 className="font-headline-sm text-headline-sm text-primary mb-4">Pre-Operative Instructions</h3>
-      <p className="text-on-surface-variant mb-8 line-clamp-3">Essential guidelines including fasting requirements, medication adjustments, and required diagnostic imaging prior to your procedure.</p>
-      <button className="flex items-center gap-2 text-secondary font-label-md group">
-                              Download PDF <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-y-0.5">download</span>
-      </button>
-      </div>
-      {/* Card 2 */}
-      <div className="bg-surface-container-lowest clinical-shadow p-8 rounded-xl border border-surface-container-high transition-all hover:-translate-y-1">
-      <div className="w-12 h-12 bg-secondary-container flex items-center justify-center rounded-lg mb-6">
-      <span className="material-symbols-outlined text-on-secondary-container" style={{ fontVariationSettings: "&apos;FILL&apos; 1" }}>fact_check</span>
-      </div>
-      <h3 className="font-headline-sm text-headline-sm text-primary mb-4">Day of Surgery Checklist</h3>
-      <p className="text-on-surface-variant mb-8 line-clamp-3">A step-by-step guide on what to bring, arrival times, and what to expect during the admission process at our neurosurgical facility.</p>
-      <button className="flex items-center gap-2 text-secondary font-label-md group">
-                              Download PDF <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-y-0.5">download</span>
-      </button>
-      </div>
-      {/* Card 3 */}
-      <div className="bg-surface-container-lowest clinical-shadow p-8 rounded-xl border border-surface-container-high transition-all hover:-translate-y-1">
-      <div className="w-12 h-12 bg-secondary-container flex items-center justify-center rounded-lg mb-6">
-      <span className="material-symbols-outlined text-on-secondary-container" style={{ fontVariationSettings: "&apos;FILL&apos; 1" }}>healing</span>
-      </div>
-      <h3 className="font-headline-sm text-headline-sm text-primary mb-4">Post-Operative Recovery</h3>
-      <p className="text-on-surface-variant mb-8 line-clamp-3">Comprehensive recovery protocols including wound care, activity restrictions, and pain management strategies for a successful rehabilitation.</p>
-      <button className="flex items-center gap-2 text-secondary font-label-md group">
-                              Download PDF <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-y-0.5">download</span>
-      </button>
-      </div>
-      </div>
+      <section className="py-24 px-margin-desktop max-w-container-max mx-auto bg-surface">
+        <div className="mb-16 text-center">
+          <h2 className="font-headline-md text-headline-md text-primary mb-4">{guides.title}</h2>
+          <div className="w-20 h-1 bg-secondary mx-auto"></div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          {guides.items.map((guide, idx) => (
+            <div key={idx} className="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-md transition-all">
+              <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary mb-6">
+                <span className="material-symbols-outlined !text-2xl">{guide.icon}</span>
+              </div>
+              <h3 className="font-headline-sm text-headline-sm text-primary mb-4">{guide.title}</h3>
+              <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">{guide.description}</p>
+            </div>
+          ))}
+        </div>
       </section>
     </>
   );
 }
 
-function TelehealthPortalBentoSection() {
+function TelehealthSection() {
+  const { telehealth } = resourcesData;
   return (
     <>
-      <section className="bg-surface-container-low py-24">
-      <div className="px-margin-desktop max-w-container-max mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-      {/* Patient Portal (Large) */}
-      <div className="md:col-span-8 bg-primary-container rounded-xl overflow-hidden flex flex-col md:flex-row relative group cursor-pointer">
-      <div className="absolute inset-0 opacity-20 transition-opacity group-hover:opacity-30">
-      
-      </div>
-      <div className="p-12 relative z-10 flex flex-col justify-center max-w-md">
-      <h3 className="font-headline-md text-headline-md text-on-tertiary mb-4">Patient Portal</h3>
-      <p className="text-on-primary-container mb-8">Access your surgical records, schedule follow-ups, and message your care team through our encrypted, HIPAA-compliant gateway.</p>
-      <button className="bg-secondary text-on-secondary self-start px-8 py-3 rounded-lg font-label-md hover:bg-on-secondary-container transition-colors">Access Portal</button>
-      </div>
-      <div className="hidden md:block flex-1 relative min-h-[400px]">
-      <img alt="" className="absolute inset-0 w-full h-full object-cover" data-alt="A clean, close-up shot of a modern medical tablet interface showing a secure login screen with clinical teal accents. The lighting is crisp and sterile yet professional. Deep navy background reinforces the security and medical authority of the NeuroLink clinic&apos;s patient portal." src="/stitch/asset-13.jpg"/>
-      </div>
-      </div>
-      {/* Telehealth (Vertical) */}
-      <div className="md:col-span-4 bg-secondary text-on-secondary p-12 rounded-xl flex flex-col justify-between">
-      <div>
-      <span className="material-symbols-outlined text-[48px] mb-6">videocam</span>
-      <h3 className="font-headline-md text-headline-md mb-4">Telehealth</h3>
-      <p className="opacity-90">Book a virtual consultation with our specialists from the comfort of your home. Ideal for pre-consultations and routine follow-ups.</p>
-      </div>
-      <button className="border border-on-secondary text-on-secondary px-8 py-3 rounded-lg font-label-md mt-12 hover:bg-on-secondary hover:text-secondary transition-all">Schedule Call</button>
-      </div>
-      </div>
-      </div>
+      <section className="py-24 bg-surface-container-low">
+        <div className="px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 className="font-headline-md text-headline-md text-primary mb-6">{telehealth.portal.title}</h2>
+            <p className="font-body-lg text-body-lg text-on-surface-variant mb-8">{telehealth.portal.description}</p>
+            <div className="flex gap-6 p-6 bg-white rounded-lg border border-outline-variant/10 shadow-sm max-w-md">
+              <span className="material-symbols-outlined text-secondary !text-3xl">{telehealth.telehealthCard.icon}</span>
+              <div>
+                <h4 className="font-label-md text-label-md text-primary mb-2">{telehealth.telehealthCard.title}</h4>
+                <p className="text-on-surface-variant text-sm">{telehealth.telehealthCard.description}</p>
+              </div>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl"></div>
+            <img alt="HIPAA Compliant Patient Portal Screenshot" className="rounded-xl shadow-clinical relative z-10" src={telehealth.portal.image} />
+          </div>
+        </div>
       </section>
     </>
   );
 }
 
-function AdministrativeResourcesFAQ() {
+function AdministrativeSection() {
+  const { administrative } = resourcesData;
   return (
     <>
-      <section className="py-24 px-margin-desktop max-w-container-max mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-      {/* Administrative */}
-      <div>
-      <h2 className="font-headline-md text-headline-md text-primary mb-8">Administrative Resources</h2>
-      <ul className="space-y-4">
-      <li className="flex items-center justify-between p-6 bg-surface-container-lowest border border-surface-container-high rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
-      <div className="flex items-center gap-4">
-      <span className="material-symbols-outlined text-secondary">payments</span>
-      <span className="font-label-md text-primary">Insurance &amp; Billing</span>
-      </div>
-      <span className="material-symbols-outlined text-outline group-hover:text-secondary transition-colors">chevron_right</span>
-      </li>
-      <li className="flex items-center justify-between p-6 bg-surface-container-lowest border border-surface-container-high rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
-      <div className="flex items-center gap-4">
-      <span className="material-symbols-outlined text-secondary">clinical_notes</span>
-      <span className="font-label-md text-primary">Medical Records Request</span>
-      </div>
-      <span className="material-symbols-outlined text-outline group-hover:text-secondary transition-colors">chevron_right</span>
-      </li>
-      <li className="flex items-center justify-between p-6 bg-surface-container-lowest border border-surface-container-high rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
-      <div className="flex items-center gap-4">
-      <span className="material-symbols-outlined text-secondary">gavel</span>
-      <span className="font-label-md text-primary">Patient Rights &amp; Responsibilities</span>
-      </div>
-      <span className="material-symbols-outlined text-outline group-hover:text-secondary transition-colors">chevron_right</span>
-      </li>
-      </ul>
-      </div>
-      {/* FAQ Preview */}
-      <div>
-      <h2 className="font-headline-md text-headline-md text-primary mb-8">Frequently Asked Questions</h2>
-      <div className="space-y-6">
-      <details className="group border-b border-surface-container-high pb-4">
-      <summary className="flex justify-between items-center cursor-pointer list-none">
-      <span className="font-label-md text-primary pr-8">How early should I arrive for my surgery?</span>
-      <span className="material-symbols-outlined text-outline transition-transform group-open:rotate-180">expand_more</span>
-      </summary>
-      <p className="mt-4 text-on-surface-variant font-body-md leading-relaxed">We generally recommend arriving at least 2 hours prior to your scheduled surgical time to complete the admission process and preoperative preparation.</p>
-      </details>
-      <details className="group border-b border-surface-container-high pb-4">
-      <summary className="flex justify-between items-center cursor-pointer list-none">
-      <span className="font-label-md text-primary pr-8">Will I need someone to drive me home?</span>
-      <span className="material-symbols-outlined text-outline transition-transform group-open:rotate-180">expand_more</span>
-      </summary>
-      <p className="mt-4 text-on-surface-variant font-body-md leading-relaxed">Yes, for all neurosurgical procedures, you must have a designated adult driver to take you home as anesthesia and neuro-recovery protocols prohibit operating a vehicle.</p>
-      </details>
-      <a className="inline-flex items-center gap-2 text-secondary font-bold mt-4 hover:underline" href="#">
-                                  View All FAQs <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-      </a>
-      </div>
-      </div>
-      </div>
+      <section className="py-24 px-margin-desktop max-w-container-max mx-auto bg-surface">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-headline-md text-headline-md text-primary text-center mb-12">{administrative.title}</h2>
+          <div className="divide-y divide-outline-variant/30 border-y border-outline-variant/30">
+            {administrative.items.map((item, idx) => (
+              <a key={idx} className="flex justify-between items-center py-6 hover:px-4 transition-all duration-200 group hover:bg-surface-container-low" href="#">
+                <div className="flex items-center gap-4">
+                  <span className="material-symbols-outlined text-secondary">{item.icon}</span>
+                  <span className="font-label-md text-label-md text-on-surface">{item.label}</span>
+                </div>
+                <span className="material-symbols-outlined text-on-surface-variant group-hover:translate-x-2 transition-transform">arrow_forward</span>
+              </a>
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );
 }
 
-function ContactSupportCTA() {
+function FAQSection() {
+  const { faqs } = resourcesData;
   return (
     <>
-      <section className="mb-24 px-margin-desktop max-w-container-max mx-auto">
-      <div className="bg-surface-container text-primary p-12 rounded-xl flex flex-col md:flex-row items-center justify-between gap-8 border border-surface-container-high">
-      <div className="text-center md:text-left">
-      <h2 className="font-headline-md text-headline-md mb-2">Need direct assistance?</h2>
-      <p className="text-on-surface-variant font-body-lg">Our patient coordinators are here to support you through every step of your care.</p>
-      </div>
-      <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-      <div className="bg-surface-container-lowest px-6 py-4 rounded-lg flex items-center gap-4 border border-outline-variant">
-      <span className="material-symbols-outlined text-secondary">call</span>
-      <div>
-      <div className="text-label-sm text-on-surface-variant">Support Line</div>
-      <div className="font-bold text-primary">1-800-NEURO-LX</div>
-      </div>
-      </div>
-      <button className="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-md hover:bg-opacity-90 transition-all flex items-center justify-center gap-2">
-                              Contact Coordinator <span className="material-symbols-outlined text-[20px]">send</span>
-      </button>
-      </div>
-      </div>
+      <section className="py-24 bg-surface-container-low">
+        <div className="max-w-3xl mx-auto px-margin-desktop">
+          <h2 className="font-headline-md text-headline-md text-primary text-center mb-16">{faqs.title}</h2>
+          <div className="space-y-4">
+            {faqs.items.map((faq, idx) => (
+              <details key={idx} className="group bg-white rounded-xl border border-outline-variant/10 shadow-sm" open={idx === 0 ? true : undefined}>
+                <summary className="flex justify-between items-center p-6 cursor-pointer list-none">
+                  <span className="font-label-md text-label-md text-on-surface">{faq.question}</span>
+                  <span className="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div className="px-6 pb-6 text-on-surface-variant leading-relaxed">{faq.answer}</div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function SupportCTASection() {
+  const { supportCta } = resourcesData;
+  return (
+    <>
+      <section className="py-24 px-margin-desktop max-w-container-max mx-auto text-center">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="font-headline-md text-headline-md text-primary mb-4">{supportCta.title}</h2>
+          <p className="font-body-lg text-body-lg text-on-surface-variant mb-8">{supportCta.description}</p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+            <div className="flex items-center gap-3 text-secondary">
+              <span className="material-symbols-outlined">{supportCta.phoneIcon}</span>
+              <span className="font-headline-sm text-headline-sm font-bold">{supportCta.phoneLabel}: {supportCta.phoneValue}</span>
+            </div>
+            <button className="px-8 py-3 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md transition-all hover:bg-secondary/90 flex items-center gap-2">
+              {supportCta.buttonText} <span className="material-symbols-outlined">{supportCta.buttonIcon}</span>
+            </button>
+          </div>
+        </div>
       </section>
     </>
   );
@@ -224,16 +177,29 @@ function ContactSupportCTA() {
 
 function ResourcesInteractions() {
   return (
-    <Script id="ResourcesInteractions" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
-      document.querySelectorAll('details').forEach((el) => {
-        el.addEventListener('toggle', () => {
-          if (el.open) {
-            document.querySelectorAll('details').forEach((otherEl) => {
-              if (otherEl !== el) otherEl.open = false;
-            });
-          }
+    <Script
+      id="resources-interactions"
+      strategy="afterInteractive"
+      dangerouslySetInnerHTML={{
+        __html: `
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => button.classList.add('scale-95'));
+            button.addEventListener('mouseup', () => button.classList.remove('scale-95'));
+            button.addEventListener('mouseleave', () => button.classList.remove('scale-95'));
         });
-      });
-    ` }} />
+
+        // FAQ accordion logic
+        document.querySelectorAll('details').forEach((el) => {
+            el.addEventListener('toggle', () => {
+                if (el.open) {
+                    document.querySelectorAll('details').forEach((otherEl) => {
+                        if (otherEl !== el) otherEl.open = false;
+                    });
+                }
+            });
+        });
+    `,
+      }}
+    />
   );
 }
