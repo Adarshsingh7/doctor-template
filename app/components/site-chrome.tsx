@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { globalData } from "@/lib/site-data";
 
-type ActivePage = "home" | "conditions" | "technology" | "patients";
+type ActivePage = "home" | "conditions" | "technology" | "patients" | "blog";
 
 export function SiteHeader({ active }: Readonly<{ active: ActivePage }>) {
   return (
@@ -39,9 +39,9 @@ export function SiteHeader({ active }: Readonly<{ active: ActivePage }>) {
           })}
         </nav>
         <div className="flex items-center gap-4">
-          <button className="bg-secondary text-on-secondary px-6 py-2.5 rounded-full font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all shadow-clinical">
+          <Link href="/book" className="bg-secondary text-on-secondary px-6 py-2.5 rounded-full font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all shadow-clinical inline-flex items-center justify-center">
             Book Appointment
-          </button>
+          </Link>
           <button className="md:hidden text-on-surface">
             <span className="material-symbols-outlined">menu</span>
           </button>

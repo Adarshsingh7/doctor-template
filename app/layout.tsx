@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import RevealObserver from "./components/reveal-observer";
 import "./globals.css";
 
 const inter = Inter({
@@ -22,7 +23,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full bg-white text-[#102f42]">{children}</body>
+      <body className="min-h-full bg-white text-[#102f42]">
+        <RevealObserver />
+        {children}
+      </body>
     </html>
   );
 }

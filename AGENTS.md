@@ -1,5 +1,3 @@
 <!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
-
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+We have /lib/site-data.ts file where we have stored all the rendered text in entire website. So if any where you want to change any text then always edit that particular field in /lib/site-data.ts file dont hardcode directly in the html or in jsx format.
 <!-- END:nextjs-agent-rules -->

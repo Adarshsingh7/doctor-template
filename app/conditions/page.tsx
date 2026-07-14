@@ -1,4 +1,5 @@
 import Script from "next/script";
+import Link from "next/link";
 import { SiteFooter, SiteHeader } from "../components/site-chrome";
 import { conditionsData } from "@/lib/site-data";
 
@@ -45,8 +46,8 @@ function HeroSection() {
             <h1 className="font-headline-lg text-headline-lg text-primary mb-6 leading-tight">{hero.title}</h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant mb-8">{hero.description}</p>
             <div className="flex gap-4">
-              <button className="px-8 py-3 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md transition-all hover:bg-secondary/90">{hero.primaryBtn}</button>
-              <button className="px-8 py-3 border-2 border-primary text-primary rounded-lg font-label-md text-label-md transition-all hover:bg-primary hover:text-white">{hero.secondaryBtn}</button>
+              <Link href="/book" className="px-8 py-3 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md transition-all hover:bg-secondary/90 inline-block">{hero.primaryBtn}</Link>
+              <Link href="/procedures" className="px-8 py-3 border-2 border-primary text-primary rounded-lg font-label-md text-label-md transition-all hover:bg-primary hover:text-white inline-block">{hero.secondaryBtn}</Link>
             </div>
           </div>
         </div>
@@ -178,9 +179,9 @@ function CTASection() {
           <div className="relative z-10">
             <h2 className="font-headline-md text-headline-md text-primary mb-4">{cta.title}</h2>
             <p className="font-body-lg text-body-lg text-on-secondary-container mb-10">{cta.description}</p>
-            <button className="px-12 py-4 bg-secondary text-on-secondary rounded-lg font-headline-sm text-headline-sm shadow-lg hover:shadow-xl hover:translate-y-[-2px] transition-all active:scale-95">
+            <Link href="/book" className="px-12 py-4 bg-secondary text-on-secondary rounded-lg font-headline-sm text-headline-sm shadow-lg hover:shadow-xl hover:translate-y-[-2px] transition-all active:scale-95 inline-block">
               {cta.buttonText}
-            </button>
+            </Link>
             <p className="mt-6 text-sm text-on-secondary-container/60 font-label-sm">{cta.footnote}</p>
           </div>
         </div>

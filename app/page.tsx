@@ -1,4 +1,5 @@
 import Script from "next/script";
+import Link from "next/link";
 import { SiteFooter, SiteHeader } from "./components/site-chrome";
 import { homeData } from "@/lib/site-data";
 
@@ -57,12 +58,12 @@ function HeroSection() {
               {hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-secondary text-on-secondary px-8 py-4 rounded-full font-label-md text-label-md hover:shadow-lg hover:shadow-secondary/20 transition-all flex items-center justify-center gap-2">
+              <Link href="/book" className="bg-secondary text-on-secondary px-8 py-4 rounded-full font-label-md text-label-md hover:shadow-lg hover:shadow-secondary/20 transition-all flex items-center justify-center gap-2">
                 {hero.primaryBtn} <span className="material-symbols-outlined">arrow_forward</span>
-              </button>
-              <button className="bg-transparent border border-outline-variant text-white px-8 py-4 rounded-full font-label-md text-label-md hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+              </Link>
+              <a href="#specialties" className="bg-transparent border border-outline-variant text-white px-8 py-4 rounded-full font-label-md text-label-md hover:bg-white/10 transition-all flex items-center justify-center gap-2">
                 {hero.secondaryBtn}
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -125,9 +126,9 @@ function DoctorProfileSection() {
                 </li>
               ))}
             </ul>
-            <button className="text-primary font-label-md text-label-md flex items-center gap-2 hover:gap-4 transition-all">
+            <Link href="/doctor/dr-elena-vance" className="text-primary font-label-md text-label-md flex items-center gap-2 hover:gap-4 transition-all">
               {doctorProfile.ctaText} <span className="material-symbols-outlined">arrow_forward</span>
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -139,7 +140,7 @@ function NeurosurgeryServicesSection() {
   const { services } = homeData;
   return (
     <>
-      <section className="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+      <section id="specialties" className="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low">
         <div className="max-w-container-max mx-auto text-center mb-16">
           <span className="text-secondary font-label-md text-label-md uppercase tracking-widest mb-4 block">{services.tagline}</span>
           <h2 className="font-headline-md text-headline-md text-primary">{services.title}</h2>
@@ -152,7 +153,10 @@ function NeurosurgeryServicesSection() {
               </div>
               <h3 className="font-headline-sm text-headline-sm text-primary mb-3">{item.title}</h3>
               <p className="text-on-surface-variant mb-6">{item.description}</p>
-              <a className="text-secondary font-label-md text-label-md hover:underline" href={item.link}>Learn more</a>
+              <Link className="text-secondary font-label-md text-label-md hover:underline inline-flex items-center gap-1 transition-transform group-hover:translate-x-1 duration-200" href={item.link}>
+                Learn more
+                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              </Link>
             </div>
           ))}
         </div>

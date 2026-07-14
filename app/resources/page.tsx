@@ -1,4 +1,5 @@
 import Script from "next/script";
+import Link from "next/link";
 import { SiteFooter, SiteHeader } from "../components/site-chrome";
 import { resourcesData } from "@/lib/site-data";
 
@@ -165,9 +166,9 @@ function SupportCTASection() {
               <span className="material-symbols-outlined">{supportCta.phoneIcon}</span>
               <span className="font-headline-sm text-headline-sm font-bold">{supportCta.phoneLabel}: {supportCta.phoneValue}</span>
             </div>
-            <button className="px-8 py-3 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md transition-all hover:bg-secondary/90 flex items-center gap-2">
+            <Link href="/book" className="px-8 py-3 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md transition-all hover:bg-secondary/90 flex items-center gap-2 inline-flex">
               {supportCta.buttonText} <span className="material-symbols-outlined">{supportCta.buttonIcon}</span>
-            </button>
+            </Link>
           </div>
         </div>
       </section>
