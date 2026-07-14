@@ -14,7 +14,6 @@ export default function ResourcesPage() {
         <HeroSection />
         <GuidesSection />
         <TelehealthSection />
-        <AdministrativeSection />
         <FAQSection />
         <SupportCTASection />
       </main>
@@ -101,30 +100,6 @@ function TelehealthSection() {
           <div className="relative reveal-card reveal-delay-200">
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl"></div>
             <img alt="HIPAA Compliant Patient Portal Screenshot" className="rounded-xl shadow-clinical relative z-10" src={telehealth.portal.image} />
-          </div>
-        </div>
-      </section>
-    </>
-  );
-}
-
-function AdministrativeSection() {
-  const { administrative } = resourcesData;
-  return (
-    <>
-      <section className="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface">
-        <div className="max-w-3xl mx-auto reveal-card">
-          <h2 className="font-headline-md text-headline-md text-primary text-center mb-12">{administrative.title}</h2>
-          <div className="divide-y divide-outline-variant/30 border-y border-outline-variant/30">
-            {administrative.items.map((item, idx) => (
-              <a key={idx} className="flex justify-between items-center py-6 hover:px-4 transition-all duration-200 group hover:bg-surface-container-low" href="#">
-                <div className="flex items-center gap-4">
-                  <span className="material-symbols-outlined text-secondary">{item.icon}</span>
-                  <span className="font-label-md text-label-md text-on-surface">{item.label}</span>
-                </div>
-                <span className="material-symbols-outlined text-on-surface-variant group-hover:translate-x-2 transition-transform">arrow_forward</span>
-              </a>
-            ))}
           </div>
         </div>
       </section>

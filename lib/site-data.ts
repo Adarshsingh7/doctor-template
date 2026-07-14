@@ -534,7 +534,7 @@ export const resourcesData = {
     title: "Need direct assistance?",
     description: "Our patient coordinators are here to support you through every step of your care.",
     phoneLabel: "Support Line",
-    phoneValue: "1-800-NEURO-LX",
+    phoneValue: "+91 8821840512",
     phoneIcon: "call",
     buttonText: "Contact Coordinator",
     buttonIcon: "send"
