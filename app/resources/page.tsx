@@ -37,12 +37,12 @@ function HeroSection() {
   const { hero } = resourcesData;
   return (
     <>
-      <section className="relative h-[480px] flex items-center overflow-hidden">
+      <section className="relative min-h-[40vh] md:h-[480px] py-16 md:py-0 flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img alt="Resources Hero" className="w-full h-full object-cover" src={hero.image} />
           <div className="absolute inset-0 bg-primary/45 backdrop-blur-[2px]"></div>
         </div>
-        <div className="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+        <div className="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
           <div className="max-w-2xl text-white">
             <h1 className="font-headline-lg text-headline-lg mb-6 leading-tight">{hero.title}</h1>
             <p className="font-body-lg text-body-lg text-primary-fixed-dim/90">{hero.description}</p>
@@ -57,21 +57,24 @@ function GuidesSection() {
   const { guides } = resourcesData;
   return (
     <>
-      <section className="py-24 px-margin-desktop max-w-container-max mx-auto bg-surface">
+      <section className="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface">
         <div className="mb-16 text-center">
           <h2 className="font-headline-md text-headline-md text-primary mb-4">{guides.title}</h2>
           <div className="w-20 h-1 bg-secondary mx-auto"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-          {guides.items.map((guide, idx) => (
-            <div key={idx} className="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-md transition-all">
-              <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary mb-6">
-                <span className="material-symbols-outlined !text-2xl">{guide.icon}</span>
+          {guides.items.map((guide, idx) => {
+            const delayClass = idx === 0 ? "reveal-delay-100" : idx === 1 ? "reveal-delay-200" : "reveal-delay-300";
+            return (
+              <div key={idx} className={`bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-md transition-all reveal-card ${delayClass}`}>
+                <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary mb-6">
+                  <span className="material-symbols-outlined !text-2xl">{guide.icon}</span>
+                </div>
+                <h3 className="font-headline-sm text-headline-sm text-primary mb-4">{guide.title}</h3>
+                <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">{guide.description}</p>
               </div>
-              <h3 className="font-headline-sm text-headline-sm text-primary mb-4">{guide.title}</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">{guide.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </>
@@ -83,8 +86,8 @@ function TelehealthSection() {
   return (
     <>
       <section className="py-24 bg-surface-container-low">
-        <div className="px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
+        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="reveal-card reveal-delay-100">
             <h2 className="font-headline-md text-headline-md text-primary mb-6">{telehealth.portal.title}</h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant mb-8">{telehealth.portal.description}</p>
             <div className="flex gap-6 p-6 bg-white rounded-lg border border-outline-variant/10 shadow-sm max-w-md">
@@ -95,7 +98,7 @@ function TelehealthSection() {
               </div>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative reveal-card reveal-delay-200">
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl"></div>
             <img alt="HIPAA Compliant Patient Portal Screenshot" className="rounded-xl shadow-clinical relative z-10" src={telehealth.portal.image} />
           </div>
@@ -109,8 +112,8 @@ function AdministrativeSection() {
   const { administrative } = resourcesData;
   return (
     <>
-      <section className="py-24 px-margin-desktop max-w-container-max mx-auto bg-surface">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface">
+        <div className="max-w-3xl mx-auto reveal-card">
           <h2 className="font-headline-md text-headline-md text-primary text-center mb-12">{administrative.title}</h2>
           <div className="divide-y divide-outline-variant/30 border-y border-outline-variant/30">
             {administrative.items.map((item, idx) => (
@@ -134,18 +137,21 @@ function FAQSection() {
   return (
     <>
       <section className="py-24 bg-surface-container-low">
-        <div className="max-w-3xl mx-auto px-margin-desktop">
+        <div className="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop">
           <h2 className="font-headline-md text-headline-md text-primary text-center mb-16">{faqs.title}</h2>
           <div className="space-y-4">
-            {faqs.items.map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-xl border border-outline-variant/10 shadow-sm" open={idx === 0 ? true : undefined}>
-                <summary className="flex justify-between items-center p-6 cursor-pointer list-none">
-                  <span className="font-label-md text-label-md text-on-surface">{faq.question}</span>
-                  <span className="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-                </summary>
-                <div className="px-6 pb-6 text-on-surface-variant leading-relaxed">{faq.answer}</div>
-              </details>
-            ))}
+            {faqs.items.map((faq, idx) => {
+              const delayClass = idx === 0 ? "reveal-delay-100" : idx === 1 ? "reveal-delay-200" : idx === 2 ? "reveal-delay-300" : "reveal-delay-400";
+              return (
+                <details key={idx} className={`group bg-white rounded-xl border border-outline-variant/10 shadow-sm reveal-card ${delayClass}`} open={idx === 0 ? true : undefined}>
+                  <summary className="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span className="font-label-md text-label-md text-on-surface">{faq.question}</span>
+                    <span className="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                  </summary>
+                  <div className="px-6 pb-6 text-on-surface-variant leading-relaxed">{faq.answer}</div>
+                </details>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -157,8 +163,8 @@ function SupportCTASection() {
   const { supportCta } = resourcesData;
   return (
     <>
-      <section className="py-24 px-margin-desktop max-w-container-max mx-auto text-center">
-        <div className="max-w-2xl mx-auto">
+      <section className="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center">
+        <div className="max-w-2xl mx-auto reveal-card">
           <h2 className="font-headline-md text-headline-md text-primary mb-4">{supportCta.title}</h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant mb-8">{supportCta.description}</p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6">

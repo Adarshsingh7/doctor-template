@@ -1,53 +1,105 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { globalData } from "@/lib/site-data";
 
 type ActivePage = "home" | "conditions" | "technology" | "patients" | "blog";
 
 export function SiteHeader({ active }: Readonly<{ active: ActivePage }>) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <header className="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-container-lowest/90 backdrop-blur-md border-b border-surface-container-high dark:border-outline-variant shadow-sm h-20">
-      <div className="flex justify-between items-center h-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-primary-container flex items-center justify-center rounded-lg">
-            <span
-              className="material-symbols-outlined text-primary-fixed"
-              style={{ fontVariationSettings: `'FILL' 1` }}
-            >
-              {globalData.logoIcon}
-            </span>
+    <>
+      <header className="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-container-lowest/90 backdrop-blur-md border-b border-surface-container-high dark:border-outline-variant shadow-sm h-20">
+        <div className="flex justify-between items-center h-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-primary-container flex items-center justify-center rounded-lg">
+              <span
+                className="material-symbols-outlined text-primary-fixed"
+                style={{ fontVariationSettings: `'FILL' 1` }}
+              >
+                {globalData.logoIcon}
+              </span>
+            </div>
+            <h1 className="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">
+              {globalData.brandName}
+            </h1>
           </div>
-          <h1 className="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">
-            {globalData.brandName}
-          </h1>
+          <nav className="hidden md:flex items-center gap-8 font-label-md text-label-md">
+            {globalData.navItems.map((item) => {
+              const isActive = item.key === active;
+              const className = isActive
+                ? "text-secondary font-bold border-b-2 border-secondary pb-1"
+                : "text-on-surface-variant hover:text-secondary transition-colors";
+
+              return item.href === "#" ? (
+                <a key={item.label} className={className} href="#">
+                  {item.label}
+                </a>
+              ) : (
+                <Link key={item.label} className={className} href={item.href}>
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+          <div className="flex items-center gap-4">
+            <Link href="/book" className="hidden sm:inline-flex bg-secondary text-on-secondary px-6 py-2.5 rounded-full font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all shadow-clinical items-center justify-center">
+              Book Appointment
+            </Link>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden text-on-surface p-2 rounded-lg hover:bg-surface-container-high transition-colors"
+              aria-label="Toggle menu"
+            >
+              <span className="material-symbols-outlined select-none">
+                {isMenuOpen ? "close" : "menu"}
+              </span>
+            </button>
+          </div>
         </div>
-        <nav className="hidden md:flex items-center gap-8 font-label-md text-label-md">
+      </header>
+
+      {/* Mobile Drawer Navigation overlay */}
+      <div
+        className={`fixed inset-0 top-20 z-40 bg-surface/95 dark:bg-surface-container-lowest/95 backdrop-blur-md transition-all duration-300 md:hidden flex flex-col ${
+          isMenuOpen
+            ? "opacity-100 pointer-events-auto translate-y-0"
+            : "opacity-0 pointer-events-none -translate-y-4"
+        }`}
+      >
+        <nav className="flex flex-col p-6 gap-6 font-headline-sm text-headline-sm font-semibold border-t border-surface-container-high dark:border-outline-variant">
           {globalData.navItems.map((item) => {
             const isActive = item.key === active;
             const className = isActive
-              ? "text-secondary font-bold border-b-2 border-secondary pb-1"
-              : "text-on-surface-variant hover:text-secondary transition-colors";
+              ? "text-secondary font-bold pl-4 border-l-4 border-secondary py-1"
+              : "text-on-surface-variant hover:text-secondary pl-4 border-l-4 border-transparent py-1 transition-all";
 
-            return item.href === "#" ? (
-              <a key={item.label} className={className} href="#">
-                {item.label}
-              </a>
-            ) : (
-              <Link key={item.label} className={className} href={item.href}>
+            return (
+              <Link
+                key={item.label}
+                className={className}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+              >
                 {item.label}
               </Link>
             );
           })}
+          <div className="pt-6 border-t border-surface-container-high dark:border-outline-variant px-4">
+            <Link
+              href="/book"
+              className="w-full bg-secondary text-on-secondary py-4 rounded-xl font-label-lg text-label-lg hover:opacity-90 active:scale-[0.98] transition-all shadow-clinical flex items-center justify-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span className="material-symbols-outlined">calendar_month</span>
+              Book Appointment
+            </Link>
+          </div>
         </nav>
-        <div className="flex items-center gap-4">
-          <Link href="/book" className="bg-secondary text-on-secondary px-6 py-2.5 rounded-full font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all shadow-clinical inline-flex items-center justify-center">
-            Book Appointment
-          </Link>
-          <button className="md:hidden text-on-surface">
-            <span className="material-symbols-outlined">menu</span>
-          </button>
-        </div>
       </div>
-    </header>
+    </>
   );
 }
 
