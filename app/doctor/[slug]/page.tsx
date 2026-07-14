@@ -4,7 +4,7 @@ import { use, useState } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteFooter, SiteHeader } from "../../components/site-chrome";
-import { doctorsData } from "@/lib/site-data";
+import { doctorsData, globalData } from "@/lib/site-data";
 
 export default function DoctorProfilePage({
   params,
@@ -314,7 +314,7 @@ export default function DoctorProfilePage({
                   </div>
                   <div>
                     <p className="text-xs text-on-surface-variant mb-1 font-semibold uppercase tracking-wider">Primary Practice</p>
-                    <p className="font-body-md text-body-md text-on-surface font-medium">NeuroLink Neurosurgery Clinic</p>
+                    <p className="font-body-md text-body-md text-on-surface font-medium">{globalData.brandName}</p>
                   </div>
                 </div>
               </div>

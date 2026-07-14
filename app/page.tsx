@@ -126,7 +126,7 @@ function DoctorProfileSection() {
                 </li>
               ))}
             </ul>
-            <Link href="/doctor/dr-elena-vance" className="text-primary font-label-md text-label-md flex items-center gap-2 hover:gap-4 transition-all">
+            <Link href={doctorProfile.link} className="text-primary font-label-md text-label-md flex items-center gap-2 hover:gap-4 transition-all">
               {doctorProfile.ctaText} <span className="material-symbols-outlined">arrow_forward</span>
             </Link>
           </div>
@@ -397,19 +397,13 @@ function ContactMapSection() {
           </div>
           <div className="bento-item-8">
             <div className="h-full min-h-[400px] bg-surface-container rounded-3xl overflow-hidden relative border border-outline-variant/20 shadow-clinical">
-              <img
-                alt=""
-                className="w-full h-full object-cover grayscale opacity-80"
-                data-alt={contactMap.mapAlt}
-                data-location={contactMap.mapLocation}
-                src={contactMap.mapImage}
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-white p-4 rounded-xl shadow-modal border border-secondary flex items-center gap-3">
-                  <div className="w-3 h-3 bg-secondary rounded-full animate-ping"></div>
-                  <span className="font-label-md text-label-md text-primary">{contactMap.pinLabel}</span>
-                </div>
-              </div>
+              <iframe
+                src="https://maps.google.com/maps?q=Shreyas%20Neuro%20%26%20Spine%20Clinic,%20Sector%20-11,%20Indira%20Nagar,%20Lucknow&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-full min-h-[400px] border-0 opacity-95"
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>

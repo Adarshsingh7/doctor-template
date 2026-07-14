@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import RevealObserver from "./components/reveal-observer";
 import "./globals.css";
+import { globalData } from "@/lib/site-data";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -9,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "NeuroLink Excellence | Precision Neurosurgery Clinic",
-  description: "Precision neurosurgical care, surgical procedures, patient resources, and neurological condition treatment.",
+  title: `${globalData.brandName} | Dr. Surjeet Singh`,
+  description: "Advanced brain, spine & diagnostic care by Dr. Surjeet Singh (MS, MCh Neurosurgery) and Dr. Stuti Kumari (MBBS, MD BHU) in Indira Nagar, Lucknow.",
 };
 
 export default function RootLayout({

@@ -19,7 +19,7 @@ export default function BlogDetailPage({
   }
 
   // Determine doctor based on blog category
-  const doctorSlug = blog.category === "Pediatric Neurology" ? "dr-marcus-sterling" : "dr-elena-vance";
+  const doctorSlug = blog.category === "Therapy & Metabolic" ? "dr-stuti-kumari" : "dr-surjeet-singh";
   const doctor = doctorsData.find((d) => d.slug === doctorSlug) || doctorsData[0];
 
   // Accordion state for FAQs

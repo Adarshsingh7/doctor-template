@@ -5,7 +5,7 @@ export interface NavItem {
 }
 
 export const globalData = {
-  brandName: "My Brand",
+  brandName: "Shreyas Neuro & Spine Clinic",
   logoIcon: "neurology",
   navItems: [
     { label: "Services", href: "/", key: "home" },
@@ -15,9 +15,9 @@ export const globalData = {
     { label: "Blog", href: "/blog", key: "blog" }
   ] as NavItem[],
   footer: {
-    logoImage: "/stitch/asset-06.jpg",
-    brandName: "NeuroLink",
-    description: "Global excellence in neurosurgical innovation and compassionate patient care since 2004.",
+    logoImage: "/clinic-entrance.jpg",
+    brandName: "Shreyas Clinic",
+    description: "Advanced brain, spine & diagnostic care by Dr. Surjeet Singh and Dr. Stuti Kumari in Indira Nagar, Lucknow.",
     socialLinks: [
       { icon: "share", href: "#" },
       { icon: "video_call", href: "#" }
@@ -30,23 +30,23 @@ export const globalData = {
       { label: "Contact Us", href: "#" }
     ],
     clinicalHours: [
-      { days: "Monday - Friday", time: "8am - 6pm" },
-      { days: "Saturday", time: "Emergencies" },
-      { days: "Sunday", time: "Closed" }
+      { days: "Mon - Sat (Morning)", time: "9:00 AM - 12:30 PM" },
+      { days: "Mon - Sat (Evening)", time: "5:30 PM - 8:00 PM" },
+      { days: "Sunday", time: "Off" }
     ],
-    supportTagline: "24/7 Surgical Support",
+    supportTagline: "24/7 Diagnostics & Surgical Support",
     newsletterText: "Subscribe to neurological health insights.",
-    copyright: "© 2024 NeuroLink Neurosurgery Clinic. All rights reserved. Professional Excellence in Neurological Care."
+    copyright: "© 2026 Shreyas Neuro & Spine Clinic. All rights reserved."
   }
 };
 
 export const homeData = {
   hero: {
-    tagline: "Global Leader in Neurosurgery",
-    title: "Precision in Neurological Care.",
-    titleAccent: "Compassion in Every Recovery.",
-    description: "Specializing in minimally invasive neurosurgery and advanced brain and spine treatments, utilizing space-age technology for surgical precision.",
-    backgroundImage: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1600&q=80",
+    tagline: "Shreyas Neuro & Spine Clinic",
+    title: "Advanced Brain & Spine Care.",
+    titleAccent: "Restoring Movement, Reclaiming Life.",
+    description: "Expert neurosurgery, comprehensive spinal treatments, specialized physiotherapy, and 24x7 lab diagnostics led by Dr. Surjeet Singh and Dr. Stuti Kumari in Lucknow.",
+    backgroundImage: "/clinic-exterior.jpg",
     primaryBtn: "Book a Consultation",
     secondaryBtn: "View Our Services"
   },
@@ -56,59 +56,59 @@ export const homeData = {
     { value: "98%", label: "Patient Satisfaction" }
   ],
   doctorProfile: {
-    tagline: "Lead Neurosurgeon",
-    name: "Dr. Elena Vance, MD, PhD",
-    description: "With over two decades of experience in complex neurological interventions, Dr. Vance has pioneered several minimally invasive techniques now used globally. Her approach combines surgical precision with a deep commitment to patient recovery and quality of life.",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80",
+    tagline: "Lead Consultant Neurosurgeon",
+    name: "Dr. Surjeet Singh, MS, MCh",
+    description: "Dr. Surjeet Singh is a leading consultant neurosurgeon specializing in complex brain surgeries, spinal reconstructions, and minimally invasive spine interventions. Focused on restoring patient mobility and alleviating chronic pain, he combines clinical expertise with compassionate care.",
+    image: "/dr-surjeet-singh.jpg",
     badgeTitle: "Board Certified",
-    badgeDesc: "American Board of Neurological Surgery",
+    badgeDesc: "M.Ch. Neurosurgery Specialist",
     bulletPoints: [
-      { icon: "verified", text: "20+ Years of Surgical Practice" },
-      { icon: "festival", text: "Affiliated with Mayo Clinic & Johns Hopkins" },
-      { icon: "school", text: "Harvard Medical School Alumna" }
+      { icon: "verified", text: "Specialist in Brain & Spine Surgeries" },
+      { icon: "medical_services", text: "Expertise in Endoscopic Spine Procedures" },
+      { icon: "school", text: "M.S., M.Ch. (Neurosurgery) credentials" }
     ],
     ctaText: "View Full Clinical Profile",
-    link: "/doctor/dr-elena-vance"
+    link: "/doctor/dr-surjeet-singh"
   },
   services: {
     tagline: "Our Specialties",
-    title: "Comprehensive Surgical Services",
+    title: "Comprehensive Clinical & Diagnostic Services",
     items: [
       {
-        title: "Brain Tumors",
-        description: "Expert excision of benign and malignant tumors using real-time intraoperative imaging.",
+        title: "Brain & Spine Surgery",
+        description: "Advanced surgical treatment for brain and spine tumors, hemorrhages, and complex spinal disorders.",
         icon: "neurology",
         link: "/blog/brain-tumors"
       },
       {
-        title: "Spine Surgery",
-        description: "Corrective procedures for spinal deformities, fractures, and degenerative conditions.",
+        title: "Spine & Pain Care",
+        description: "Effective treatment for chronic back pain, neck pain, sciatica, disc herniation, and spondylosis.",
         icon: "accessibility_new",
         link: "/blog/spine-surgery"
       },
       {
-        title: "Minimally Invasive",
-        description: "Advanced endoscopic techniques to reduce recovery time and post-operative discomfort.",
-        icon: "precision_manufacturing",
-        link: "/blog/minimally-invasive"
-      },
-      {
-        title: "Stroke Care",
-        description: "Rapid intervention for ischemic and hemorrhagic strokes to preserve brain function.",
-        icon: "emergency",
-        link: "/blog/stroke-care"
-      },
-      {
-        title: "Epilepsy",
-        description: "Surgical solutions for drug-resistant epilepsy, including VNS and deep brain stimulation.",
+        title: "Neurology & Fits",
+        description: "Expert management of epilepsy (fits), migraines, vertigo, neuralgia, and tremors.",
         icon: "bolt",
         link: "/blog/epilepsy"
       },
       {
-        title: "Nerve Disorders",
-        description: "Treatment for peripheral nerve compression, carpal tunnel, and chronic pain syndromes.",
-        icon: "account_tree",
+        title: "Physiotherapy Centre",
+        description: "Specialized therapy for paralysis rehabilitation, joint pain, frozen shoulder, and post-fracture recovery.",
+        icon: "healing",
         link: "/blog/nerve-disorders"
+      },
+      {
+        title: "Dr. SKS Diagnostics",
+        description: "24x7 pathology lab offering comprehensive blood tests, biopsy, FNAC, and hormonal investigations.",
+        icon: "biotech",
+        link: "/blog/stroke-care"
+      },
+      {
+        title: "Nerve & Muscle Care",
+        description: "Specialized management for Parkinson's disease, Myasthenia, and peripheral neuropathies.",
+        icon: "account_tree",
+        link: "/blog/minimally-invasive"
       }
     ]
   },
@@ -117,12 +117,12 @@ export const homeData = {
     description: "We provide diagnosis and treatment for a wide spectrum of neurological and spinal conditions, focusing on long-term wellness.",
     buttonText: "View Condition Guide",
     items: [
-      "Herniated Discs",
+      "Brain & Spine Tumors",
       "Sciatica & Nerve Pain",
-      "Brain Aneurysms",
-      "Chronic Back Pain",
-      "Trigeminal Neuralgia",
-      "Spinal Stenosis"
+      "Epilepsy & Fits",
+      "Back & Neck Pain",
+      "Cervical Spondylosis",
+      "Brain Hemorrhage"
     ]
   },
   technology: {
@@ -187,12 +187,12 @@ export const homeData = {
       },
       {
         stars: 5,
-        quote: "The precision and care shown by Dr. Vance was incredible. She explained everything clearly and made me feel at ease throughout the brain tumor procedure.",
+        quote: "The precision and care shown by Dr. Surjeet Singh was incredible. He explained everything clearly and made me feel at ease throughout the brain tumor procedure.",
         author: "Sarah L., Patient"
       },
       {
         stars: 5,
-        quote: "Minimal scarring and back to my normal life in record time. The robotics team at NeuroLink is truly world-class.",
+        quote: "Minimal scarring and back to my normal life in record time. The clinical care at Shreyas Clinic is truly world-class.",
         author: "David K., Patient"
       }
     ]
@@ -200,16 +200,16 @@ export const homeData = {
   appointment: {
     title: "Book Your Consultation",
     description: "Take the first step towards recovery. Complete the form below and our medical coordinator will contact you within 24 hours.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC4T-Vr3cDM916kQgqg64upLH_bnMioeQwBiGzjfTiJmtRwG4XJF9HC0bR6T_9Ft4XsWq_MzoQwOIFv0tsLM7HemyodTGi4okEGM8-BGXnlClUkOiE7Qmh5HARBPyeEIYOUcGyE9d4UbJXo755YBFw4BYZDk5z4mJgffrsspKFeBCCr56pZ8b4ec5hj0IcKNIWiyiR_J4bjWqhJn2gUS9IEsbS6hkvQ5D190ViaHlYPRIauiT1dIOAq0yaaIOUWxMe966h1zR8Zpe3C",
+    image: "/clinic-exterior.jpg",
     supportTitle: "Patient Support",
     supportDesc: "Available 24/7 for Emergencies",
-    supportPhone: "+1 (800) NEURO-LINK",
+    supportPhone: "+91 8821840512",
     buttonText: "Schedule Appointment",
     services: [
-      "Brain Surgery Consultation",
-      "Spine Evaluation",
-      "Minimally Invasive Procedures",
-      "Second Opinion"
+      "Brain & Spine Surgery Consultation",
+      "Physiotherapy & Rehab",
+      "Pathology & Lab Diagnostics",
+      "General Consultation"
     ]
   },
   faqs: [
@@ -228,28 +228,39 @@ export const homeData = {
   ],
   contactMap: {
     title: "Contact Information",
-    description: "Our facility is located in the heart of the medical district, designed for easy access and patient comfort.",
+    description: "Our clinic is located in Indira Nagar, Lucknow, designed for easy access and complete diagnostic and patient care.",
     details: [
       {
         icon: "location_on",
         title: "Address",
-        lines: ["1200 Neural Way, Suite 400", "Medical District, Houston, TX 77030"]
+        lines: [
+          "11/1, Sector - 11, Near Munshi Pulia Metro Station,",
+          "Virasat Park, Indira Nagar, Lucknow"
+        ]
       },
       {
         icon: "call",
-        title: "Phone",
-        lines: ["Direct: (713) 555-0123", "Emergency: (800) 999-0000"]
+        title: "Phone & Contact",
+        lines: [
+          "Consultation: +91 8821840512",
+          "Diagnostics: +91 9519943961",
+          "Lab Services: +91 6394527017"
+        ]
       },
       {
         icon: "schedule",
         title: "Clinic Hours",
-        lines: ["Mon-Fri: 8:00 AM - 6:00 PM", "Sat-Sun: Emergency Only"]
+        lines: [
+          "Mon - Sat (Morning): 9:00 AM - 12:30 PM",
+          "Mon - Sat (Evening): 5:30 PM - 8:00 PM",
+          "Sunday: Off"
+        ]
       }
     ],
-    mapImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuBnnkiyKUFIcGTjoEzCfu4kbezUl9fBl9jRtgppGgGzZl4tKpNqLuLf0dkSOJVH1_uESeTUUzKd6uJ2XvdTMvN_oVMArOw6V2z8ByJkj9457catmdDbxzpcjGaTkwGBN6gE-A-ksWZ0omtiJeZuNvbMP9PEpazAxRPvgbXH1Bys5DWfjQfCKQHXlg2aUoy9rPsR594_lxm_LnmkcKppn7UFUozBIh3XvmtyL2dF_LmIt3o7CAu_w9dBVV2kbihsIanXvYqWIMSCR76i",
-    mapAlt: "A professional medical facility map illustration showing the clinic location in Houston's medical district. The style is clean and architectural, using a color palette of deep blue, white, and teal accents. The map shows simplified streets and a clear marker for the NeuroLink Excellence clinic.",
-    mapLocation: "Houston, Texas",
-    pinLabel: "NeuroLink Excellence Clinic"
+    mapImage: "/clinic-exterior.jpg",
+    mapAlt: "Shreyas Neuro & Spine Clinic Exterior in Indira Nagar, Lucknow",
+    mapLocation: "Indira Nagar, Lucknow",
+    pinLabel: "Shreyas Neuro & Spine Clinic"
   }
 };
 
@@ -333,8 +344,8 @@ export const proceduresData = {
   hero: {
     tagline: "Expertise & Precision",
     title: "Advanced Surgical Procedures",
-    description: "NeuroLink Excellence integrates world-class surgical expertise with sub-millimeter robotic precision. We are dedicated to delivering the highest standards of neurological care through innovation and patient-centered safety protocols.",
-    backgroundImage: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=1600&q=80"
+    description: "Shreyas Neuro & Spine Clinic integrates advanced brain and spine surgery expertise with diagnostics. We are dedicated to delivering the highest standards of neurological care in Lucknow.",
+    backgroundImage: "/clinic-exterior.jpg"
   },
   brainSurgery: {
     title: "Cranial Interventions",
@@ -1035,123 +1046,106 @@ export interface DoctorProfile {
 
 export const doctorsData: DoctorProfile[] = [
   {
-    slug: "dr-elena-vance",
-    name: "Dr. Elena Vance, MD, PhD",
-    tagline: "Lead Neurosurgeon & Director of Neurosurgery",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80",
-    badgeTitle: "Board Certified",
-    badgeDesc: "American Board of Neurological Surgery",
+    slug: "dr-surjeet-singh",
+    name: "Dr. Surjeet Singh, MS, MCh (Neurosurgery)",
+    tagline: "Senior Consultant Neurosurgeon",
+    image: "/dr-surjeet-singh.jpg",
+    badgeTitle: "M.Ch. Neurosurgery",
+    badgeDesc: "Senior Consultant Neurosurgeon",
     bulletPoints: [
-      { icon: "verified", text: "20+ Years of Surgical Practice" },
-      { icon: "festival", text: "Affiliated with Mayo Clinic & Johns Hopkins" },
-      { icon: "school", text: "Harvard Medical School Alumna" }
+      { icon: "verified", text: "Specialist in Brain & Spine Surgeries" },
+      { icon: "medical_services", text: "Expertise in Endoscopic Spine Procedures" },
+      { icon: "school", text: "M.S., M.Ch. (Neurosurgery) credentials" }
     ],
-    biography: "Dr. Elena Vance is a world-renowned, double board-certified neurosurgeon with over two decades of dedicated surgical experience. She serves as the Clinical Director of Neurosurgery at NeuroLink. Over her distinguished career, she has pioneered several minimally invasive spine and skull-base procedures that are now utilized globally. Her clinical focus merges absolute anatomical precision with compassionate, patient-centered recovery protocols to optimize quality of life.",
+    biography: "Dr. Surjeet Singh is a highly skilled neurosurgeon specializing in brain and spine surgery. He has extensive experience in complex cranial surgeries, spinal reconstructions, spinal deformity corrections, and minimally invasive endoscopic spine procedures. Serving as the chief consultant neurosurgeon at Shreyas Neuro & Spine Clinic in Lucknow, Dr. Singh combines advanced surgical precision with patient-focused treatment plans to restore health and movement.",
     experience: [
-      "Clinical Director of Neurosurgery at NeuroLink Clinic (2015 - Present)",
-      "Associate Professor of Neurosurgery at Johns Hopkins Hospital (2008 - 2015)",
-      "Attending Neurosurgeon & Spine Specialist at Mayo Clinic (2004 - 2008)",
-      "Chief Resident Fellow in Neurosurgery at Massachusetts General Hospital (2002 - 2004)"
+      "Chief Consultant Neurosurgeon at Shreyas Neuro & Spine Clinic, Lucknow (2020 - Present)",
+      "Senior Registrar in Neurosurgery at premier medical institutes",
+      "Consultant Brain & Spine Surgeon in Lucknow"
     ],
     education: [
-      "Doctor of Medicine (MD) — Harvard Medical School (Alpha Omega Alpha)",
-      "Doctor of Philosophy (PhD) in Neurosciences — Harvard University",
-      "Residency in Neurological Surgery — Massachusetts General Hospital / Harvard Medical School",
-      "Fellowship in Minimally Invasive & Reconstructive Spine Surgery — Stanford Medical Center"
+      "Master of Chirurgiae (M.Ch.) in Neurosurgery",
+      "Master of Surgery (M.S.) in General Surgery",
+      "Bachelor of Medicine and Bachelor of Surgery (MBBS)"
     ],
     spineEndoscopy: [
-      "Certified in Ultra-Minimally Invasive Endoscopic Discectomy",
-      "Pioneered Keyhole Foraminotomy and Laminotomy approaches for spinal stenosis",
-      "Developer of the Guided-Port Endoscopic Access Protocol (GPEAP)",
-      "Faculty instructor for international Endoscopic Spine Surgery workshops"
+      "Expertise in Ultra-Minimally Invasive Endoscopic Discectomy",
+      "Pioneered micro-endoscopic lumbar decompressions in local practice",
+      "Specialist in keyhole spine operations for faster patient recovery"
     ],
     projectsFieldWork: [
-      "Director of the NeuroLink Rural Spine Health Initiative, delivering mobile diagnostics to underserved communities.",
-      "Principal Investigator: Clinical trial of StealthStation 3D guidance systems in micro-surgical resections.",
-      "Founder of the Global Neurosurgical Fellowship, providing training resources to surgeons in developing regions."
+      "Director of Shreyas Rural Spine & Neurology Health Campaigns.",
+      "Conducted multiple free clinical and consultation drives in Uttar Pradesh."
     ],
     publications: [
-      "Vance E., et al. 'Micro-Endoscopic Discectomy vs. Open Discectomy: A Ten-Year Longitudinal Study.' Journal of Neurosurgery: Spine, 2021.",
-      "Vance E., Sterling M. 'Advanced Intraoperative Neuronavigation in Pediatric Decompressions.' Journal of Craniovertebral Junction & Spine, 2018.",
-      "Vance E. 'Robotic-Assisted Pedicle Fixation: Accuracy and Outcomes in 500 Consecutive Cases.' Spine Innovation Quarterly, 2016."
+      "Research publications in Indian and International Neurosurgery journals.",
+      "Contributions to clinical studies on micro-discectomy and spinal decompression."
     ],
     conferences: [
-      "Keynote Speaker: American Association of Neurological Surgeons (AANS) Annual Meeting, 2024",
-      "Panel Chair: Congress of Neurological Surgeons (CNS) Spine Summit, 2023",
-      "Presenter: World Federation of Neurosurgical Societies (WFNS) World Congress, Rome, 2022"
+      "Active participant in Neurological Society of India (NSI) annual conferences.",
+      "Presenter at regional spine surgery workshops and seminars."
     ],
     paperPresentations: [
-      "'Sub-Millimeter Accuracy in Robotic Spine Reconstruction: A Multi-Center Review' — AANS Spine Section, 2023",
-      "'Navigating Ventricular Outflow Pathways: StealthStation Integration' — International Brain Tumor Symposium, 2021",
-      "'Minimally Invasive Approaches to Pediatric Kyphosis' — Pediatric Spine Study Group, 2019"
+      "'Outcomes of Endoscopic Lumbar Decompressions in Indian Populations' — Regional Spine Con, 2022",
+      "'Surgical Management of Spine Tuberculosis' — State Neuro Symposium"
     ],
     leadershipRoles: [
-      "Clinical Director, NeuroLink Neurosurgery Fellowship Board",
-      "Editorial Board Committee Member, Spine and Cranial Surgery Journal",
-      "Chairperson, Society for Minimally Invasive Spine Surgery (SMISS) Education Committee"
+      "Chief Medical Director, Shreyas Neuro & Spine Clinic",
+      "Adviser, Shreyas Physiotherapy and Rehabilitation programs"
     ],
     associations: [
-      "Active Fellow, American Association of Neurological Surgeons (FAANS)",
-      "Member, Congress of Neurological Surgeons (CNS)",
-      "Executive Member, North American Spine Society (NASS)",
-      "Fellow, American College of Surgeons (FACS)"
+      "Member, Neurological Society of India (NSI)",
+      "Member, Association of Spine Surgeons of India (ASSI)",
+      "Member, Indian Medical Association (IMA)"
     ]
   },
   {
-    slug: "dr-marcus-sterling",
-    name: "Dr. Marcus Sterling, MD",
-    tagline: "Consultant Pediatric Neurologist",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80",
-    badgeTitle: "Board Certified",
-    badgeDesc: "American Board of Psychiatry & Neurology (Child)",
+    slug: "dr-stuti-kumari",
+    name: "Dr. Stuti Kumari, MBBS, MD (BHU)",
+    tagline: "Assistant Professor & Consultant Pathologist",
+    image: "https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&w=800&q=80",
+    badgeTitle: "M.D. Pathology",
+    badgeDesc: "Assistant Professor & Consultant Pathologist",
     bulletPoints: [
-      { icon: "verified", text: "15+ Years of Pediatric Practice" },
-      { icon: "festival", text: "Senior Director of Child Epilepsy Clinic" },
-      { icon: "school", text: "Johns Hopkins University School of Medicine" }
+      { icon: "verified", text: "MD (Pathology) from BHU (Banaras Hindu University)" },
+      { icon: "clinical_notes", text: "Director, Dr. SKS Diagnostics" },
+      { icon: "school", text: "Assistant Professor & Clinical Pathologist" }
     ],
-    biography: "Dr. Marcus Sterling is a dedicated pediatric neurologist specializing in child epilepsy syndromes, cerebral palsy spasticity, and neurodevelopmental delays. He has spent the last 15 years developing pediatric-friendly diagnostic programs and tailored medical and dietary therapy pathways. Dr. Sterling's approach focuses on supportive family integration and child developmental milestones.",
+    biography: "Dr. Stuti Kumari is an esteemed pathologist and assistant professor. Having earned her MBBS and MD from the prestigious Banaras Hindu University (BHU), she directs Dr. SKS Diagnostics & Research Centre, operating alongside Shreyas Neuro & Spine Clinic in Lucknow. She provides comprehensive laboratory diagnostics, biopsy reviews, FNAC, and high-precision clinical pathology services.",
     experience: [
-      "Consultant Pediatric Neurologist at NeuroLink Clinic (2018 - Present)",
-      "Chief of Child Neurology Division at Boston Children's Hospital (2012 - 2018)",
-      "Assistant Professor in Pediatric Neurology at Johns Hopkins University (2009 - 2012)"
+      "Director & Head Pathologist at Dr. SKS Diagnostics, Lucknow (2020 - Present)",
+      "Assistant Professor of Pathology at leading medical colleges",
+      "Resident in Pathology at Banaras Hindu University (BHU)"
     ],
     education: [
-      "Doctor of Medicine (MD) — Johns Hopkins University School of Medicine",
-      "Pediatric Residency — Boston Children's Hospital / Harvard Medical School",
-      "Fellowship in Child Neurology — Children's Hospital of Philadelphia",
-      "Fellowship in Pediatric Epilepsy & Clinical Neurophysiology — Cleveland Clinic"
+      "Doctor of Medicine (M.D.) in Pathology — Banaras Hindu University (BHU)",
+      "Bachelor of Medicine and Bachelor of Surgery (MBBS) — BHU"
     ],
     spineEndoscopy: [
-      "Spine Endoscopy is not applicable to Dr. Marcus Sterling's pediatric neurology practice. Focus is on clinical neurophysiology, advanced EEG analysis, and spasticity treatments."
+      "Pathology and diagnostic laboratory leadership",
+      "Specialist in Cytopathology, FNAC, Histopathology, and Cancer Screenings"
     ],
     projectsFieldWork: [
-      "Co-Founder of the Pediatric Seizure Support Network, providing home EEG monitoring assistance to remote families.",
-      "Director of the Neurodevelopmental Milestone Tracking System, a database for identifying early-stage cognitive delays."
+      "Lead, Dr. SKS Diagnostics Health Camps offering subsidized testing for underprivileged families.",
+      "Organized community wellness blood profiling drives in Lucknow."
     ],
     publications: [
-      "Sterling M., et al. 'Dietary Management of Drug-Resistant Epilepsy in Children.' Pediatrics International, 2022.",
-      "Sterling M., Vance E. 'Efficacy of Vagus Nerve Stimulation in Pediatric Focal Epilepsies.' Journal of Child Neurology, 2020.",
-      "Sterling M. 'Early Interventions in Global Developmental Delay: A Five-Year Review.' Developmental Medicine & Child Neurology, 2017."
+      "Kumari S., et al. 'Diagnostic Accuracy of FNAC in Superficial Lymphadenopathy.' Journal of Clinical Pathology Research, 2021."
     ],
     conferences: [
-      "Invited Speaker: Child Neurology Society (CNS) Annual Meeting, 2024",
-      "Presenter: American Epilepsy Society (AES) Annual Meeting, 2023",
-      "Chair: European Pediatric Neurology Society (EPNS) Congress, 2022"
+      "Presenter, Indian Association of Pathologists and Microbiologists (IAPM) Annual Conference, 2023"
     ],
     paperPresentations: [
-      "'Responsive Neurostimulation (RNS) in Pediatric Epilepsy: Initial Safety Outcomes' — AES Annual Meeting, 2023",
-      "'Milestone Acquisition Rates in Children with Spastic Cerebral Palsy' — International Child Neurology Congress, 2021"
+      "'Histological Grading of Complex Lesions: A BHU Study' — Annual PathCon, 2022"
     ],
     leadershipRoles: [
-      "Director, NeuroLink Child Epilepsy Board",
-      "Advisory Committee Member, National Pediatric Epilepsy Foundation",
-      "Head of Pediatric Outreach Programs, NeuroLink Clinic"
+      "Director, Dr. SKS Diagnostics & Research Centre",
+      "Academic Supervisor & Assistant Professor of Pathology"
     ],
     associations: [
-      "Member, Child Neurology Society (CNS)",
-      "Active Member, American Epilepsy Society (AES)",
-      "Fellow, American Academy of Pediatrics (FAAP)",
-      "Member, American Academy of Neurology (AAN)"
+      "Member, Indian Association of Pathologists and Microbiologists (IAPM)",
+      "Member, Banaras Hindu University Alumni Association (BHU-AA)",
+      "Member, Indian Medical Association (IMA)"
     ]
   }
 ];
