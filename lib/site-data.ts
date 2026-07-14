@@ -230,6 +230,18 @@ export const homeData = {
     {
       question: "Do you offer second opinions for outside diagnoses?",
       answer: "Yes, we frequently provide second opinions. Our team reviews existing scans and records to offer a comprehensive surgical or non-surgical perspective on complex cases."
+    },
+    {
+      question: "What insurances/panels do you accept?",
+      answer: "We accept all major health insurance policies, corporate panels, and third-party administrators (TPAs). Our billing department will assist you with cashless pre-authorization procedures prior to admission."
+    },
+    {
+      question: "What is your clinic's emergency policy?",
+      answer: "For critical neurological emergencies such as sudden onset paralysis, trauma, or severe stroke symptoms, please visit the emergency wing immediately. Our clinical support and pathology lab services are active 24/7."
+    },
+    {
+      question: "Do I need a referral to book a consultation?",
+      answer: "No, a direct referral is not required to schedule a consultation with our neurosurgeon. However, if you have been referred by another physician, please bring their referral notes and prescription cards."
     }
   ],
   contactMap: {
@@ -503,6 +515,18 @@ export const resourcesData = {
       {
         question: "Will I need someone to drive me home?",
         answer: "Yes, for all neurosurgical procedures, you must have a designated adult driver to take you home as anesthesia and neuro-recovery protocols prohibit operating a vehicle."
+      },
+      {
+        question: "How do I request copies of my medical reports and scans?",
+        answer: "Medical records and lab reports can be requested directly from our diagnostic desk, or accessed securely via our patient portal. For physical CD copies of MRI/CT scans, please notify the coordinator 24 hours in advance."
+      },
+      {
+        question: "What is your appointment cancellation policy?",
+        answer: "If you need to reschedule or cancel your consultation, please notify us at least 24 hours in advance by calling our support desk or using the online cancellation portal, allowing other patients to secure that time."
+      },
+      {
+        question: "How are diagnostic pathology lab reports delivered?",
+        answer: "Most diagnostic laboratory test reports (blood tests, biochemistry) are completed on the same day. You will receive an SMS alert with a secure download link, or you can collect physical printed copies from our 24/7 lab counter."
       }
     ]
   },
