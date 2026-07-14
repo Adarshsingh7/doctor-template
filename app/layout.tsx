@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { FloatingContactButtons } from "./components/site-chrome";
 import RevealObserver from "./components/reveal-observer";
 import "./globals.css";
 import { globalData } from "@/lib/site-data";
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className="min-h-full bg-white text-[#102f42]">
         <RevealObserver />
         {children}
+        <FloatingContactButtons />
       </body>
     </html>
   );

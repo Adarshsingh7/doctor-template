@@ -207,17 +207,6 @@ function ConditionsInteractions() {
             button.addEventListener('mouseup', () => button.classList.remove('scale-95'));
             button.addEventListener('mouseleave', () => button.classList.remove('scale-95'));
         });
-
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (nav) {
-                if (window.scrollY > 20) {
-                    nav.classList.add('shadow-md', 'bg-surface/95');
-                } else {
-                    nav.classList.remove('shadow-md', 'bg-surface/95');
-                }
-            }
-        });
     `,
       }}
     />

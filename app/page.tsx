@@ -103,7 +103,7 @@ function DoctorProfileSection() {
     <>
       <section className="py-24 px-margin-mobile md:px-margin-desktop bg-surface">
         <div className="max-w-container-max mx-auto flex flex-col md:flex-row items-center gap-16">
-          <div className="w-full md:w-1/2 relative">
+          <div className="w-full md:w-1/2 relative reveal-card reveal-delay-100">
             <div className="aspect-square rounded-2xl overflow-hidden shadow-modal">
               <img alt={doctorProfile.name} className="w-full h-full object-cover" src={doctorProfile.image} />
             </div>
@@ -112,7 +112,7 @@ function DoctorProfileSection() {
               <p className="font-body-md text-body-md opacity-90">{doctorProfile.badgeDesc}</p>
             </div>
           </div>
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 reveal-card reveal-delay-200">
             <span className="text-secondary font-label-md text-label-md uppercase tracking-widest mb-4 block">{doctorProfile.tagline}</span>
             <h2 className="font-headline-md text-headline-md text-primary mb-6">{doctorProfile.name}</h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">
@@ -140,14 +140,14 @@ function NeurosurgeryServicesSection() {
   const { services } = homeData;
   return (
     <>
-      <section id="specialties" className="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low">
-        <div className="max-w-container-max mx-auto text-center mb-16">
+      <section id="specialties" className="scroll-mt-24 py-16 md:py-24 bg-surface-container-low overflow-hidden">
+        <div className="max-w-container-max mx-auto text-center mb-10 md:mb-16 px-margin-mobile md:px-margin-desktop">
           <span className="text-secondary font-label-md text-label-md uppercase tracking-widest mb-4 block">{services.tagline}</span>
           <h2 className="font-headline-md text-headline-md text-primary">{services.title}</h2>
         </div>
-        <div className="max-w-container-max mx-auto bento-grid">
+        <div className="max-w-container-max mx-auto flex gap-4 overflow-x-auto px-margin-mobile pb-4 snap-x snap-mandatory md:grid md:grid-cols-12 md:gap-6 md:overflow-visible md:px-margin-desktop md:pb-0">
           {services.items.map((item, idx) => (
-            <div key={idx} className="bento-item-4 bg-surface-container-lowest p-8 rounded-2xl shadow-clinical hover:shadow-modal transition-all border border-outline-variant/10 group">
+            <div key={idx} className={`min-w-[82%] snap-start bg-surface-container-lowest p-6 rounded-2xl shadow-clinical hover:shadow-modal transition-all border border-outline-variant/10 group sm:min-w-[48%] md:col-span-4 md:min-w-0 md:p-8 reveal-card reveal-delay-${Math.min((idx + 1) * 100, 600)}`}>
               <div className="w-14 h-14 bg-secondary-container rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <span className="material-symbols-outlined text-on-secondary-container" style={{ fontVariationSettings: `'FILL' 1` }}>{item.icon}</span>
               </div>
@@ -169,18 +169,18 @@ function ConditionsTreatedSection() {
   const { conditions } = homeData;
   return (
     <>
-      <section className="py-24 px-margin-mobile md:px-margin-desktop bg-surface">
-        <div className="max-w-container-max mx-auto flex flex-col md:flex-row gap-16">
-          <div className="w-full md:w-1/3">
+      <section id="conditions" className="scroll-mt-24 py-16 px-margin-mobile md:py-24 md:px-margin-desktop bg-surface">
+        <div className="max-w-container-max mx-auto flex flex-col md:flex-row gap-10 md:gap-16">
+          <div className="w-full md:w-1/3 reveal-card reveal-delay-100">
             <h2 className="font-headline-md text-headline-md text-primary mb-6">{conditions.title}</h2>
             <p className="text-body-lg text-on-surface-variant mb-8">{conditions.description}</p>
             <button className="bg-primary text-on-primary px-8 py-3 rounded-full font-label-md text-label-md">{conditions.buttonText}</button>
           </div>
-          <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="w-full md:w-2/3 grid grid-cols-2 gap-3 md:gap-4">
             {conditions.items.map((item, idx) => (
-              <div key={idx} className="flex items-center p-6 bg-surface-container-low rounded-xl border border-outline-variant/10">
-                <span className="material-symbols-outlined text-secondary mr-4">fiber_manual_record</span>
-                <span className="font-label-md text-label-md text-on-surface">{item}</span>
+              <div key={idx} className={`flex items-start gap-2 p-4 bg-surface-container-low rounded-xl border border-outline-variant/10 md:items-center md:gap-4 md:p-6 reveal-card reveal-delay-${Math.min((idx + 1) * 100, 600)}`}>
+                <span className="material-symbols-outlined text-secondary text-base md:text-2xl">fiber_manual_record</span>
+                <span className="font-label-md text-label-md text-on-surface leading-snug">{item}</span>
               </div>
             ))}
           </div>
@@ -194,15 +194,15 @@ function AdvancedTechnologySection() {
   const { technology } = homeData;
   return (
     <>
-      <section className="py-24 px-margin-mobile md:px-margin-desktop bg-primary-container text-white">
-        <div className="max-w-container-max mx-auto bento-grid items-center">
-          <div className="bento-item-6 order-2 md:order-1">
+      <section id="technology" className="scroll-mt-24 py-16 px-margin-mobile md:py-24 md:px-margin-desktop bg-primary-container text-white">
+        <div className="max-w-container-max mx-auto grid grid-cols-1 gap-10 md:grid-cols-12 md:items-center md:gap-6">
+          <div className="order-2 md:order-1 md:col-span-6 reveal-card reveal-delay-200">
             <span className="text-secondary-fixed font-label-md text-label-md uppercase tracking-widest mb-4 block">{technology.tagline}</span>
             <h2 className="font-headline-md text-headline-md mb-8">{technology.title}</h2>
-            <div className="space-y-8">
+            <div className="space-y-5 md:space-y-8">
               {technology.items.map((item, idx) => (
-                <div key={idx} className="flex gap-6">
-                  <div className="shrink-0 w-12 h-12 rounded-full border border-secondary-fixed/50 flex items-center justify-center">
+                <div key={idx} className={`flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 md:gap-6 md:border-0 md:bg-transparent md:p-0 reveal-card reveal-delay-${Math.min((idx + 1) * 100, 300)}`}>
+                  <div className="shrink-0 w-11 h-11 rounded-full border border-secondary-fixed/50 flex items-center justify-center md:h-12 md:w-12">
                     <span className="material-symbols-outlined text-secondary-fixed">{item.icon}</span>
                   </div>
                   <div>
@@ -213,9 +213,9 @@ function AdvancedTechnologySection() {
               ))}
             </div>
           </div>
-          <div className="bento-item-6 order-1 md:order-2">
-            <div className="rounded-3xl overflow-hidden shadow-modal border border-white/10">
-              <img alt="Operating Room Technology" className="w-full h-[500px] object-cover" src={technology.image} />
+          <div className="order-1 md:order-2 md:col-span-6 reveal-card reveal-delay-100">
+            <div className="rounded-2xl md:rounded-3xl overflow-hidden shadow-modal border border-white/10">
+              <img alt="Operating Room Technology" className="w-full h-64 object-cover sm:h-80 md:h-[500px]" src={technology.image} />
             </div>
           </div>
         </div>
@@ -228,17 +228,17 @@ function PatientJourneySection() {
   const { patientJourney } = homeData;
   return (
     <>
-      <section className="py-24 px-margin-mobile md:px-margin-desktop bg-surface">
-        <div className="max-w-container-max mx-auto text-center mb-20">
+      <section id="journey" className="scroll-mt-24 py-16 md:py-24 bg-surface overflow-hidden">
+        <div className="max-w-container-max mx-auto text-center mb-10 md:mb-20 px-margin-mobile md:px-margin-desktop">
           <span className="text-secondary font-label-md text-label-md uppercase tracking-widest mb-4 block">{patientJourney.tagline}</span>
           <h2 className="font-headline-md text-headline-md text-primary">{patientJourney.title}</h2>
         </div>
-        <div className="max-w-container-max mx-auto relative">
+        <div className="max-w-container-max mx-auto relative px-margin-mobile md:px-margin-desktop">
           {/* Timeline Line */}
           <div className="absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant/30 hidden md:block"></div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
+          <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory md:grid md:grid-cols-4 md:gap-12 md:overflow-visible md:pb-0 relative z-10">
             {patientJourney.steps.map((step, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center">
+              <div key={idx} className={`min-w-[78%] snap-start flex flex-col items-center text-center bg-surface-container-lowest rounded-2xl border border-outline-variant/10 p-6 shadow-clinical sm:min-w-[44%] md:min-w-0 md:bg-transparent md:border-0 md:p-0 md:shadow-none reveal-card reveal-delay-${Math.min((idx + 1) * 100, 400)}`}>
                 <div className="w-16 h-16 rounded-full bg-secondary text-on-secondary flex items-center justify-center mb-6 shadow-clinical relative">
                   <span className="material-symbols-outlined">{step.icon}</span>
                   <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full text-[10px] flex items-center justify-center border-2 border-white">
@@ -260,13 +260,13 @@ function Testimonials() {
   const { testimonials } = homeData;
   return (
     <>
-      <section className="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low">
-        <div className="max-w-container-max mx-auto text-center mb-16">
+      <section id="reviews" className="scroll-mt-24 py-16 md:py-24 bg-surface-container-low overflow-hidden">
+        <div className="max-w-container-max mx-auto text-center mb-10 md:mb-16 px-margin-mobile md:px-margin-desktop">
           <h2 className="font-headline-md text-headline-md text-primary">{testimonials.title}</h2>
         </div>
-        <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-container-max mx-auto flex gap-4 overflow-x-auto px-margin-mobile pb-4 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:px-margin-desktop md:pb-0">
           {testimonials.items.map((item, idx) => (
-            <div key={idx} className="bg-surface-container-lowest p-10 rounded-2xl shadow-clinical border border-outline-variant/10">
+            <div key={idx} className={`min-w-[84%] snap-start bg-surface-container-lowest p-6 rounded-2xl shadow-clinical border border-outline-variant/10 sm:min-w-[48%] md:min-w-0 md:p-10 reveal-card reveal-delay-${Math.min((idx + 1) * 100, 300)}`}>
               <div className="flex text-secondary mb-4">
                 {Array.from({ length: item.stars }).map((_, sIdx) => (
                   <span key={sIdx} className="material-symbols-outlined" style={{ fontVariationSettings: `'FILL' 1` }}>star</span>
@@ -287,7 +287,7 @@ function AppointmentBooking() {
   return (
     <>
       <section className="py-24 px-margin-mobile md:px-margin-desktop bg-surface relative overflow-hidden">
-        <div className="max-w-container-max mx-auto flex flex-col lg:flex-row bg-surface-container-lowest rounded-3xl overflow-hidden shadow-modal">
+        <div className="max-w-container-max mx-auto flex flex-col lg:flex-row bg-surface-container-lowest rounded-3xl overflow-hidden shadow-modal reveal-card">
           <div className="w-full lg:w-1/2 p-12 md:p-16">
             <h2 className="font-headline-md text-headline-md text-primary mb-4">{appointment.title}</h2>
             <p className="text-on-surface-variant mb-10">{appointment.description}</p>
@@ -350,7 +350,7 @@ function FAQSection() {
           <h2 className="font-headline-md text-headline-md text-primary text-center mb-16">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <details key={idx} className="group bg-surface-container-lowest rounded-xl border border-outline-variant/10 shadow-clinical" open={idx === 0 ? true : undefined}>
+              <details key={idx} className={`group bg-surface-container-lowest rounded-xl border border-outline-variant/10 shadow-clinical reveal-card reveal-delay-${Math.min((idx + 1) * 100, 600)}`} open={idx === 0 ? true : undefined}>
                 <summary className="flex justify-between items-center p-6 cursor-pointer list-none">
                   <span className="font-label-md text-label-md text-on-surface">{faq.question}</span>
                   <span className="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
@@ -369,20 +369,20 @@ function ContactMapSection() {
   const { contactMap } = homeData;
   return (
     <>
-      <section className="py-24 px-margin-mobile md:px-margin-desktop bg-surface">
-        <div className="max-w-container-max mx-auto bento-grid">
-          <div className="bento-item-4 space-y-8">
+      <section id="contact" className="scroll-mt-24 py-16 px-margin-mobile md:py-24 md:px-margin-desktop bg-surface">
+        <div className="max-w-container-max mx-auto grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-6">
+          <div className="space-y-8 lg:col-span-4 reveal-card reveal-delay-100">
             <div>
               <h2 className="font-headline-md text-headline-md text-primary mb-4">{contactMap.title}</h2>
               <p className="text-on-surface-variant">{contactMap.description}</p>
             </div>
-            <div className="space-y-6">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
               {contactMap.details.map((detail, idx) => (
-                <div key={idx} className="flex gap-4">
-                  <span className="material-symbols-outlined text-secondary">{detail.icon}</span>
-                  <div>
+                <div key={idx} className={`flex min-w-0 gap-3 rounded-2xl bg-surface-container-low p-4 border border-outline-variant/10 md:gap-4 reveal-card reveal-delay-${Math.min((idx + 1) * 100, 300)}`}>
+                  <span className="material-symbols-outlined text-secondary shrink-0">{detail.icon}</span>
+                  <div className="min-w-0">
                     <h5 className="font-label-md text-label-md text-on-surface">{detail.title}</h5>
-                    <p className="text-on-surface-variant">
+                    <p className="text-on-surface-variant break-words">
                       {detail.lines.map((line, lIdx) => (
                         <span key={lIdx}>
                           {line}
@@ -395,11 +395,11 @@ function ContactMapSection() {
               ))}
             </div>
           </div>
-          <div className="bento-item-8">
-            <div className="h-full min-h-[400px] bg-surface-container rounded-3xl overflow-hidden relative border border-outline-variant/20 shadow-clinical">
+          <div className="lg:col-span-8 reveal-card reveal-delay-200">
+            <div className="h-full min-h-[320px] bg-surface-container rounded-2xl md:rounded-3xl overflow-hidden relative border border-outline-variant/20 shadow-clinical md:min-h-[400px]">
               <iframe
                 src="https://maps.google.com/maps?q=Shreyas%20Neuro%20%26%20Spine%20Clinic,%20Sector%20-11,%20Indira%20Nagar,%20Lucknow&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                className="w-full h-full min-h-[400px] border-0 opacity-95"
+                className="w-full h-full min-h-[320px] border-0 opacity-95 md:min-h-[400px]"
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -423,17 +423,6 @@ function HomeInteractions() {
             button.addEventListener('mousedown', () => button.classList.add('scale-95'));
             button.addEventListener('mouseup', () => button.classList.remove('scale-95'));
             button.addEventListener('mouseleave', () => button.classList.remove('scale-95'));
-        });
-
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (header) {
-                if (window.scrollY > 20) {
-                    header.classList.add('shadow-clinical');
-                } else {
-                    header.classList.remove('shadow-clinical');
-                }
-            }
         });
     `,
       }}

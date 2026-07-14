@@ -5,7 +5,7 @@ export interface NavItem {
 }
 
 export const globalData = {
-  brandName: "Shreyas Neuro & Spine Clinic",
+  brandName: "Shreyas Neuro",
   logoIcon: "neurology",
   navItems: [
     { label: "Services", href: "/", key: "home" },
@@ -19,9 +19,13 @@ export const globalData = {
     brandName: "Shreyas Clinic",
     description: "Advanced brain, spine & diagnostic care by Dr. Surjeet Singh and Dr. Stuti Kumari in Indira Nagar, Lucknow.",
     socialLinks: [
-      { icon: "share", href: "#" },
-      { icon: "video_call", href: "#" }
+      { label: "Facebook", icon: "facebook", href: "https://facebook.com" },
+      { label: "Instagram", icon: "instagram", href: "https://instagram.com" },
+      { label: "YouTube", icon: "youtube", href: "https://youtube.com/" }
     ],
+    creditText: "Made by STech Web Solutions",
+    creditHref: "https://stechwebsolution.com/",
+    businessPhone: "+91 8821840512",
     patientLinks: [
       { label: "Privacy Policy", href: "#" },
       { label: "Terms of Service", href: "#" },
