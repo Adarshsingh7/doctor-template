@@ -1,23 +1,26 @@
 export interface NavItem {
   label: string;
   href: string;
-  key?: "home" | "conditions" | "technology" | "patients";
+  key?: "home" | "conditions" | "technology" | "patients" | "blog" | "about" | "contact" | "gallery";
 }
 
 export const globalData = {
   brandName: "Shreyas Neuro",
   logoIcon: "neurology",
   navItems: [
-    { label: "Services", href: "/", key: "home" },
+    { label: "Home", href: "/", key: "home" },
+    { label: "About Us", href: "/about", key: "about" },
     { label: "Conditions", href: "/conditions", key: "conditions" },
     { label: "Technology", href: "/procedures", key: "technology" },
     { label: "Patients", href: "/resources", key: "patients" },
-    { label: "Blog", href: "/blog", key: "blog" }
+    { label: "Gallery", href: "/gallery", key: "gallery" },
+    { label: "Blog", href: "/blog", key: "blog" },
+    { label: "Contact Us", href: "/contact", key: "contact" }
   ] as NavItem[],
   footer: {
     logoImage: "/clinic-entrance.jpg",
     brandName: "Shreyas Clinic",
-    description: "Advanced brain, spine & diagnostic care by Dr. Surjeet Singh and Dr. Stuti Kumari in Indira Nagar, Lucknow.",
+    description: "Advanced brain, spine & diagnostic care by Dr. Surjeet Singh in Indira Nagar, Lucknow.",
     socialLinks: [
       { label: "Facebook", icon: "facebook", href: "https://facebook.com" },
       { label: "Instagram", icon: "instagram", href: "https://instagram.com" },
@@ -31,7 +34,7 @@ export const globalData = {
       { label: "Terms of Service", href: "#" },
       { label: "Patient Rights", href: "#" },
       { label: "Medical Disclaimer", href: "#" },
-      { label: "Contact Us", href: "#" }
+      { label: "Contact Us", href: "/contact" }
     ],
     clinicalHours: [
       { days: "Mon - Sat (Morning)", time: "9:00 AM - 12:30 PM" },
@@ -39,7 +42,6 @@ export const globalData = {
       { days: "Sunday", time: "Off" }
     ],
     supportTagline: "24/7 Diagnostics & Surgical Support",
-    newsletterText: "Subscribe to neurological health insights.",
     copyright: "© 2026 Shreyas Neuro & Spine Clinic. All rights reserved."
   }
 };
@@ -1103,53 +1105,204 @@ export const doctorsData: DoctorProfile[] = [
       "Member, Indian Medical Association (IMA)"
     ]
   },
-  {
-    slug: "dr-stuti-kumari",
-    name: "Dr. Stuti Kumari, MBBS, MD (BHU)",
-    tagline: "Assistant Professor & Consultant Pathologist",
-    image: "https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&w=800&q=80",
-    badgeTitle: "M.D. Pathology",
-    badgeDesc: "Assistant Professor & Consultant Pathologist",
-    bulletPoints: [
-      { icon: "verified", text: "MD (Pathology) from BHU (Banaras Hindu University)" },
-      { icon: "clinical_notes", text: "Director, Dr. SKS Diagnostics" },
-      { icon: "school", text: "Assistant Professor & Clinical Pathologist" }
-    ],
-    biography: "Dr. Stuti Kumari is an esteemed pathologist and assistant professor. Having earned her MBBS and MD from the prestigious Banaras Hindu University (BHU), she directs Dr. SKS Diagnostics & Research Centre, operating alongside Shreyas Neuro & Spine Clinic in Lucknow. She provides comprehensive laboratory diagnostics, biopsy reviews, FNAC, and high-precision clinical pathology services.",
-    experience: [
-      "Director & Head Pathologist at Dr. SKS Diagnostics, Lucknow (2020 - Present)",
-      "Assistant Professor of Pathology at leading medical colleges",
-      "Resident in Pathology at Banaras Hindu University (BHU)"
-    ],
-    education: [
-      "Doctor of Medicine (M.D.) in Pathology — Banaras Hindu University (BHU)",
-      "Bachelor of Medicine and Bachelor of Surgery (MBBS) — BHU"
-    ],
-    spineEndoscopy: [
-      "Pathology and diagnostic laboratory leadership",
-      "Specialist in Cytopathology, FNAC, Histopathology, and Cancer Screenings"
-    ],
-    projectsFieldWork: [
-      "Lead, Dr. SKS Diagnostics Health Camps offering subsidized testing for underprivileged families.",
-      "Organized community wellness blood profiling drives in Lucknow."
-    ],
-    publications: [
-      "Kumari S., et al. 'Diagnostic Accuracy of FNAC in Superficial Lymphadenopathy.' Journal of Clinical Pathology Research, 2021."
-    ],
-    conferences: [
-      "Presenter, Indian Association of Pathologists and Microbiologists (IAPM) Annual Conference, 2023"
-    ],
-    paperPresentations: [
-      "'Histological Grading of Complex Lesions: A BHU Study' — Annual PathCon, 2022"
-    ],
-    leadershipRoles: [
-      "Director, Dr. SKS Diagnostics & Research Centre",
-      "Academic Supervisor & Assistant Professor of Pathology"
-    ],
-    associations: [
-      "Member, Indian Association of Pathologists and Microbiologists (IAPM)",
-      "Member, Banaras Hindu University Alumni Association (BHU-AA)",
-      "Member, Indian Medical Association (IMA)"
-    ]
-  }
+  // {
+  //   slug: "dr-stuti-kumari",
+  //   name: "Dr. Stuti Kumari, MBBS, MD (BHU)",
+  //   tagline: "Assistant Professor & Consultant Pathologist",
+  //   image: "https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&w=800&q=80",
+  //   badgeTitle: "M.D. Pathology",
+  //   badgeDesc: "Assistant Professor & Consultant Pathologist",
+  //   bulletPoints: [
+  //     { icon: "verified", text: "MD (Pathology) from BHU (Banaras Hindu University)" },
+  //     { icon: "clinical_notes", text: "Director, Dr. SKS Diagnostics" },
+  //     { icon: "school", text: "Assistant Professor & Clinical Pathologist" }
+  //   ],
+  //   biography: "Dr. Stuti Kumari is an esteemed pathologist and assistant professor. Having earned her MBBS and MD from the prestigious Banaras Hindu University (BHU), she directs Dr. SKS Diagnostics & Research Centre, operating alongside Shreyas Neuro & Spine Clinic in Lucknow. She provides comprehensive laboratory diagnostics, biopsy reviews, FNAC, and high-precision clinical pathology services.",
+  //   experience: [
+  //     "Director & Head Pathologist at Dr. SKS Diagnostics, Lucknow (2020 - Present)",
+  //     "Assistant Professor of Pathology at leading medical colleges",
+  //     "Resident in Pathology at Banaras Hindu University (BHU)"
+  //   ],
+  //   education: [
+  //     "Doctor of Medicine (M.D.) in Pathology — Banaras Hindu University (BHU)",
+  //     "Bachelor of Medicine and Bachelor of Surgery (MBBS) — BHU"
+  //   ],
+  //   spineEndoscopy: [
+  //     "Pathology and diagnostic laboratory leadership",
+  //     "Specialist in Cytopathology, FNAC, Histopathology, and Cancer Screenings"
+  //   ],
+  //   projectsFieldWork: [
+  //     "Lead, Dr. SKS Diagnostics Health Camps offering subsidized testing for underprivileged families.",
+  //     "Organized community wellness blood profiling drives in Lucknow."
+  //   ],
+  //   publications: [
+  //     "Kumari S., et al. 'Diagnostic Accuracy of FNAC in Superficial Lymphadenopathy.' Journal of Clinical Pathology Research, 2021."
+  //   ],
+  //   conferences: [
+  //     "Presenter, Indian Association of Pathologists and Microbiologists (IAPM) Annual Conference, 2023"
+  //   ],
+  //   paperPresentations: [
+  //     "'Histological Grading of Complex Lesions: A BHU Study' — Annual PathCon, 2022"
+  //   ],
+  //   leadershipRoles: [
+  //     "Director, Dr. SKS Diagnostics & Research Centre",
+  //     "Academic Supervisor & Assistant Professor of Pathology"
+  //   ],
+  //   associations: [
+  //     "Member, Indian Association of Pathologists and Microbiologists (IAPM)",
+  //     "Member, Banaras Hindu University Alumni Association (BHU-AA)",
+  //     "Member, Indian Medical Association (IMA)"
+  //   ]
+  // }
 ];
+
+export const aboutData = {
+  hero: {
+    tagline: "About Shreyas Clinic",
+    title: "About Us",
+    description: "Learn about Shreyas Neuro & Spine Clinic, our mission, our values, and the expert clinical team dedicated to your recovery.",
+    backgroundImage: "/clinic-exterior.jpg"
+  },
+  mission: {
+    tagline: "Our Core Mission",
+    title: "Dedicated to Excellence in Neurological & Diagnostic Care",
+    description: "At Shreyas Neuro & Spine Clinic, our mission is to provide world-class, comprehensive neurosurgical, spine, and diagnostic services. We combine cutting-edge technology with compassionate, patient-centered care to help restore mobility, alleviate pain, and enhance the quality of life for our patients.",
+    values: [
+      {
+        title: "Clinical Precision",
+        description: "Utilizing state-of-the-art navigation and surgical systems for sub-millimeter accuracy.",
+        icon: "biotech"
+      },
+      {
+        title: "Patient-First Care",
+        description: "Providing personalized treatment plans tailored to each individual's needs and lifestyle.",
+        icon: "diversity_1"
+      },
+      {
+        title: "Advanced Diagnostics",
+        description: "24/7 in-house laboratory testing ensuring timely and accurate results for critical decisions.",
+        icon: "clinical_notes"
+      }
+    ]
+  },
+  doctorsSection: {
+    tagline: "Meet Our Expert",
+    title: "Led by a Renowned Medical Specialist",
+    description: "Our clinic is directed by Dr. Surjeet Singh, a highly qualified and experienced neurosurgeon dedicated to delivering advanced brain and spine care."
+  },
+  facility: {
+    tagline: "State-of-the-Art Facility",
+    title: "A Healing Environment",
+    description: "Shreyas Clinic is located in Indira Nagar, Lucknow, featuring modern consultation suites, specialized physiotherapy rehabilitation, and Dr. SKS Diagnostics for comprehensive testing.",
+    items: [
+      "Advanced Neuro-rehab Equipment",
+      "24/7 Diagnostic Pathology Lab",
+      "Comfortable Recovery & Waiting Areas",
+      "Patient Education & Consultation Rooms"
+    ],
+    image: "/clinic-entrance.jpg"
+  }
+};
+
+export const contactData = {
+  hero: {
+    tagline: "Get in Touch",
+    title: "Contact Us",
+    description: "Have questions or need to make an inquiry? Find our location details, call our desk, or send us a message directly.",
+    backgroundImage: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=1600&q=80"
+  },
+  form: {
+    title: "Send Us a Message",
+    description: "Fill out the form below, and our coordinator will respond to your query as soon as possible.",
+    buttonText: "Submit Message",
+    fields: {
+      name: "Full Name",
+      email: "Email Address",
+      phone: "Phone Number",
+      subject: "Subject",
+      message: "Your Message"
+    }
+  }
+};
+
+export interface GalleryItem {
+  src: string;
+  title: string;
+  category: "Facility" | "Technology" | "Diagnostics" | "Patient Care";
+  size: "normal" | "wide" | "tall" | "large";
+  description: string;
+}
+
+export const galleryData = {
+  hero: {
+    tagline: "Visual Tour",
+    title: "Our Gallery",
+    description: "Take a visual tour of Shreyas Neuro & Spine Clinic, highlighting our state-of-the-art facility, surgical tools, and patient care suites.",
+    backgroundImage: "/clinic-exterior.jpg"
+  },
+  categories: [
+    { key: "All", label: "All Photos" },
+    { key: "Facility", label: "Our Facility" },
+    { key: "Technology", label: "Technology" },
+    { key: "Diagnostics", label: "Diagnostics" },
+    { key: "Patient Care", label: "Patient Care" }
+  ],
+  items: [
+    {
+      src: "/clinic-exterior.jpg",
+      title: "Clinic Exterior",
+      category: "Facility",
+      size: "wide",
+      description: "Our modern clinic exterior in Indira Nagar, Lucknow, featuring complete security and direct diagnostic support."
+    },
+    {
+      src: "/clinic-entrance.jpg",
+      title: "Main Lobby",
+      category: "Facility",
+      size: "normal",
+      description: "Spacious reception desk and waiting lobby designed for patient and family comfort."
+    },
+    {
+      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBkp9NlDpN6nFlyxR3XYZvN2DOCevTPS0dhIcs9SKsms0fa4dJQz0nLp7Jnj0pp3j-ss9L1NWx0wlyjri1h7TZYQUyKQK4QJpHwau4vPt__U4LV_o2w7Pw5Q2UayzSNUwFhT9bdfz7wa-AQmnxbaiK7A7TN-Q09QO0Y9lJn7NwPWAKStPWysCHZ4lFIbwFldjsz6V8okBfmyxKM014FmMMM0ERUbQSfyj1LC4Z1REVHHfKw6Uc0zc5J-T0_m6Hld52Zx_x6fhCxd5y0",
+      title: "StealthStation Navigation System",
+      category: "Technology",
+      size: "large",
+      description: "Advanced 3D real-time neuronavigation framework utilized for high-precision brain and spine surgeries."
+    },
+    {
+      src: "https://images.unsplash.com/photo-1559058789-672da06263d8?auto=format&fit=crop&w=800&q=80",
+      title: "Neuronavigation Display Console",
+      category: "Technology",
+      size: "wide",
+      description: "High-definition planning screens displaying detailed structural mapping markers."
+    },
+    {
+      src: "/dr-surjeet-singh.jpg",
+      title: "Dr. Surjeet Singh in Consultation",
+      category: "Patient Care",
+      size: "tall",
+      description: "Consultation desk where patient histories are reviewed and recovery journeys are developed."
+    },
+    {
+      src: "/stitch/asset-07.jpg",
+      title: "Digital Consultation Portal",
+      category: "Patient Care",
+      size: "normal",
+      description: "Explaining diagnostic charts and 3D spinal models directly to patients using digital tablets."
+    },
+    {
+      src: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
+      title: "Dr. SKS Diagnostics Pathology Lab",
+      category: "Diagnostics",
+      size: "normal",
+      description: "Automated analysis systems for blood tests, biopsies, and routine diagnostic processing."
+    },
+    {
+      src: "https://images.unsplash.com/photo-1590611936760-eeb9bc598548?auto=format&fit=crop&w=800&q=80",
+      title: "High-Definition Surgical Microscope",
+      category: "Technology",
+      size: "wide",
+      description: "HD visualization platform with integrated fluorescence to highlight microvascular pathologies."
+    }
+  ] as GalleryItem[]
+};

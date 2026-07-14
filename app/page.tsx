@@ -1,7 +1,7 @@
 import Script from "next/script";
 import Link from "next/link";
 import { SiteFooter, SiteHeader } from "./components/site-chrome";
-import { homeData } from "@/lib/site-data";
+import { blogData, homeData } from "@/lib/site-data";
 
 export default function Home() {
   return (
@@ -138,6 +138,8 @@ function DoctorProfileSection() {
 
 function NeurosurgeryServicesSection() {
   const { services } = homeData;
+  const blogImagesBySlug = new Map(blogData.map((blog) => [blog.slug, blog.image]));
+
   return (
     <>
       <section id="specialties" className="scroll-mt-24 py-16 md:py-24 bg-surface-container-low overflow-hidden">
@@ -146,19 +148,32 @@ function NeurosurgeryServicesSection() {
           <h2 className="font-headline-md text-headline-md text-primary">{services.title}</h2>
         </div>
         <div className="max-w-container-max mx-auto flex gap-4 overflow-x-auto px-margin-mobile pb-4 snap-x snap-mandatory md:grid md:grid-cols-12 md:gap-6 md:overflow-visible md:px-margin-desktop md:pb-0">
-          {services.items.map((item, idx) => (
-            <div key={idx} className={`min-w-[82%] snap-start bg-surface-container-lowest p-6 rounded-2xl shadow-clinical hover:shadow-modal transition-all border border-outline-variant/10 group sm:min-w-[48%] md:col-span-4 md:min-w-0 md:p-8 reveal-card reveal-delay-${Math.min((idx + 1) * 100, 600)}`}>
-              <div className="w-14 h-14 bg-secondary-container rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <span className="material-symbols-outlined text-on-secondary-container" style={{ fontVariationSettings: `'FILL' 1` }}>{item.icon}</span>
+          {services.items.map((item, idx) => {
+            const slug = item.link.split("/").pop() ?? "";
+            const image = blogImagesBySlug.get(slug);
+
+            return (
+              <div key={idx} className={`min-w-[82%] snap-start bg-surface-container-lowest rounded-2xl shadow-clinical hover:shadow-modal transition-all border border-outline-variant/10 group overflow-hidden sm:min-w-[48%] md:col-span-4 md:min-w-0 reveal-card reveal-delay-${Math.min((idx + 1) * 100, 600)}`}>
+                {image && (
+                  <div className="relative h-44 overflow-hidden bg-primary-container">
+                    <img alt={item.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" src={image} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/35 to-transparent" />
+                  </div>
+                )}
+                <div className="p-6 md:p-8">
+                  <div className="w-14 h-14 bg-secondary-container rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span className="material-symbols-outlined text-on-secondary-container" style={{ fontVariationSettings: `'FILL' 1` }}>{item.icon}</span>
+                  </div>
+                  <h3 className="font-headline-sm text-headline-sm text-primary mb-3">{item.title}</h3>
+                  <p className="text-on-surface-variant mb-6">{item.description}</p>
+                  <Link className="text-secondary font-label-md text-label-md hover:underline inline-flex items-center gap-1 transition-transform group-hover:translate-x-1 duration-200" href={item.link}>
+                    Learn more
+                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </Link>
+                </div>
               </div>
-              <h3 className="font-headline-sm text-headline-sm text-primary mb-3">{item.title}</h3>
-              <p className="text-on-surface-variant mb-6">{item.description}</p>
-              <Link className="text-secondary font-label-md text-label-md hover:underline inline-flex items-center gap-1 transition-transform group-hover:translate-x-1 duration-200" href={item.link}>
-                Learn more
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              </Link>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </>

@@ -5,7 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { globalData } from "@/lib/site-data";
 
-type ActivePage = "home" | "conditions" | "technology" | "patients" | "blog";
+type ActivePage = "home" | "conditions" | "technology" | "patients" | "blog" | "about" | "contact" | "gallery";
 type SocialIconName = "facebook" | "instagram" | "youtube";
 
 const socialIcons: Record<SocialIconName, ReactNode> = {
@@ -137,7 +137,7 @@ export function SiteFooter() {
   const { footer } = globalData;
   return (
     <footer className="bg-primary-container dark:bg-tertiary-container w-full pt-16 pb-8">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-on-primary-fixed">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-on-primary-fixed">
         <div className="md:col-span-1">
           <div className="flex items-center gap-3 mb-6">
             {/* <img alt="Logo" className="w-12 h-12 object-contain brightness-0 invert" src={footer.logoImage} /> */}
@@ -185,20 +185,6 @@ export function SiteFooter() {
               {footer.supportTagline}
             </li>
           </ul>
-        </div>
-        <div>
-          <h5 className="text-white font-label-md text-label-md uppercase tracking-widest mb-6">Newsletter</h5>
-          <p className="text-sm text-on-primary-container mb-4">{footer.newsletterText}</p>
-          <div className="flex gap-2">
-            <input
-              className="bg-primary/40 border-outline-variant/30 rounded-lg p-2 text-white text-sm w-full outline-none focus:border-secondary"
-              placeholder="Email"
-              type="email"
-            />
-            <button className="bg-secondary text-on-secondary px-4 py-2 rounded-lg">
-              <span className="material-symbols-outlined">send</span>
-            </button>
-          </div>
         </div>
       </div>
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-16 pt-8 border-t border-outline-variant/10 text-center">
